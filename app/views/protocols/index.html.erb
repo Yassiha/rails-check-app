@@ -1,0 +1,9 @@
+<% @protocols.each do |protocol|  %>
+<%= protocol.title %> <br>
+<%= protocol.content %> <br>
+<% protocol.tasks.each do |task| %>
+  <%= task.content %> <br>
+  <%= task.check %> <br>
+  <% end %>
+  <hr>
+<% end %>
