@@ -1,4 +1,4 @@
-<%= simple_form_for @task, url: create_path, method: :post do |f| %>
+<%= simple_form_for @task, url: tasks_path, method: :post do |f| %>
 <h2>Create Task:</h2>
 <%= f.input :content, label: "Description:" %>
 <button type="button" class="btn btn-primary">
