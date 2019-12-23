@@ -1,9 +1,5 @@
 <% @protocols.each do |protocol|  %>
-<%= protocol.title %> <br>
-<%= protocol.content %> <br>
-<% protocol.tasks.each do |task| %>
-  <%= task.content %> <br>
-  <%= task.check %> <br>
-  <% end %>
-  <hr>
+<%= link_to protocol.title, protocol_path(protocol) %> <br>
 <% end %>
+   <%= link_to "Add", new_protocol_path  %>
+
