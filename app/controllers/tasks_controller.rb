@@ -15,7 +15,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.save
 
-    redirect_to article_path(@task)
+    redirect_to tasks_path
   end
 
   def update
@@ -25,7 +25,7 @@ class TasksController < ApplicationController
     redirect_to task_path(@task)
   end
 
-  def delete
+  def destroy
     @task = Task.find(params[:id])
     @task.destroy
 
