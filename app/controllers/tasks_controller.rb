@@ -11,26 +11,30 @@ class TasksController < ApplicationController
     @task = Task.new
   end
 
+  def edit
+    @task = Task.find(params[:protocol_id])
+  end
+
   def create
     @task = Task.new(task_params)
-    @task.protocol = Protocol.find(params[:protocol_id])
+    @task.protocol = Protocol.find(task_params)
     @task.save
-
-    redirect_to protocols_path
+    redirect_to protocol_path(@task.protocol)
   end
 
   def update
-    @task = Task.find(params[:id])
+    @task = Task.find(params[:protocol_id])
     @task.update(task_params)
 
-    redirect_to protocols_path
+    redirect_to protocol_path(@task.protocol)
   end
 
   def destroy
-    @task = Task.find(params[:id])
+    @task = Task.find(params[:protocol_id])
+    prot = @task.protocol
     @task.destroy
 
-    redirect_to protocols_path
+    redirect_to protocol_path(prot)
   end
 
   private

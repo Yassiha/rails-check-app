@@ -1,5 +1,10 @@
 <% @protocols.each do |protocol|  %>
-<%= link_to protocol.title, protocol_path(protocol) %> <br>
+<%= link_to protocol.title, protocol_path(protocol) %>
+<%= link_to "Delete", protocol, method: :delete, data: { confirm: 'Are you sure?', disable_with: 'loading...' } %>
+
+
+ <br>
 <% end %>
+<br>
    <%= link_to "Add", new_protocol_path  %>
 

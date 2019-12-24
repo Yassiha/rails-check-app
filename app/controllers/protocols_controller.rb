@@ -11,6 +11,10 @@ class ProtocolsController < ApplicationController
     @protocol = Protocol.new
   end
 
+  def edit
+    @protocol = Protocol.find(params[:id])
+  end
+
   def create
     @protocol = Protocol.new(protocol_params)
     @protocol.save

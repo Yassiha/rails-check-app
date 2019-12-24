@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2019_12_23_134533) do
 
   create_table "tasks", force: :cascade do |t|
     t.text "content"
-    t.boolean "check"
+    t.boolean "check", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "protocol_id"

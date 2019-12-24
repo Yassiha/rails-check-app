@@ -1,9 +1,10 @@
-<%= simple_form_for @task, url: create_path, method: :post do |f| %>
-<h2>Create Task:</h2>
+<%= simple_form_for @task, url: protocol_task_path(@task), method: :patch do |f| %>
+<h2>Edit Task:</h2>
 <%= f.input :content, label: "Description:" %>
 <button type="button" class="btn btn-primary">
   <%= f.button :submit, value: 'Add', "data-disable-with" => "Creating.." %>
 </button>
    <% end %>
+   <%= link_to "Back", protocol_path(@task.protocol) %>
 
 

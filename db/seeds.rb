@@ -7,26 +7,26 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 description = 'ceci une description generique'
 
-a = Protocol.new(title: 'zone 1', content: description)
-b = Protocol.new(title: 'zone 2', content: description)
-c = Protocol.new(title: 'zone 3', content: description)
-d = Protocol.new(title: 'zone 4', content: description)
+a = Protocol.new(title: 'Documentation', content: description)
+b = Protocol.new(title: 'Check-List matin', content: description)
+c = Protocol.new(title: 'Check-List soir', content: description)
+d = Protocol.new(title: 'Check-List nuit', content: description)
 
 a.save
 b.save
 c.save
 d.save
 
-Task.new(content: 'task number 1', check: true, protocol: a).save
-Task.new(content: 'task number 2', check: true, protocol: a).save
-Task.new(content: 'task number 3', check: true, protocol: a).save
-Task.new(content: 'task number 4', check: true, protocol: a).save
-Task.new(content: 'task number 5', check: true, protocol: a).save
-Task.new(content: 'task number 6', check: true, protocol: b).save
-Task.new(content: 'task number 7', check: true, protocol: b).save
-Task.new(content: 'task number 8', check: true, protocol: c).save
-Task.new(content: 'task number 9', check: true, protocol: c).save
-Task.new(content: 'task number 10', check: false, protocol: d).save
-Task.new(content: 'task number 11', check: false, protocol: d).save
-Task.new(content: 'task number 12', check: false, protocol: d).save
-Task.new(content: 'task number 13', check: false, protocol: d).save
+Task.new(content: 'task number 1', protocol: a).save
+Task.new(content: 'task number 2', protocol: a).save
+Task.new(content: 'task number 3', protocol: a).save
+Task.new(content: 'task number 4', protocol: a).save
+Task.new(content: 'task number 5', protocol: a).save
+Task.new(content: 'task number 6', protocol: b).save
+Task.new(content: 'task number 7', protocol: b).save
+Task.new(content: 'task number 8', protocol: c).save
+Task.new(content: 'task number 9', protocol: c).save
+Task.new(content: 'task number 10', protocol: d).save
+Task.new(content: 'task number 11', protocol: d).save
+Task.new(content: 'task number 12', protocol: d).save
+Task.new(content: 'task number 13', protocol: d).save
