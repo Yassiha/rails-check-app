@@ -10,13 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_23_134533) do
+ActiveRecord::Schema.define(version: 2019_12_25_112758) do
 
   create_table "protocols", force: :cascade do |t|
     t.string "title"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "creator"
+    t.string "submit_date"
+    t.string "submitter"
   end
 
   create_table "tasks", force: :cascade do |t|
