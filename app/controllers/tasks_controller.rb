@@ -17,7 +17,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    @task.protocol = Protocol.find(task_params)
+    @task.protocol = Protocol.find(params[:protocol_id])
     @task.save
     redirect_to protocol_path(@task.protocol)
   end

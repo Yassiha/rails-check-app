@@ -1,13 +1,15 @@
-<h1>All Protocols for a given area</h1>
+<ul class="list-group">
+<h1 style="margin: 8px;">All Protocols for a given area</h1>
 
-<ul class="list-group"></ul>
 <% @protocols.each do |protocol|  %>
 <li class="list-group-item">
   <%= link_to protocol.title, protocol_path(protocol) %>
-  <%= link_to "Delete", protocol, method: :delete, data: { confirm: 'Are you sure?', disable_with: 'loading...' } %>
+  <%= button_to "Delete", protocol, method: :delete, data: { confirm: 'Are you sure?', disable_with: 'loading...' } %>
 </li>
-
-
 <% end %>
-   <%= link_to "Add", new_protocol_path  %>
+<li class="list-group-item"> <%= link_to "Add", new_protocol_path  %>
+</li>
+</ul>
+
+
 
