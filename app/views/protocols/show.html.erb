@@ -21,7 +21,7 @@
   </li>
   <li class="list-group-item">
     <% @feedbacks.each do |feedback| %>
-      <h3>Concerne: <%= feedback.task.content %></h3>
+      <h3>Concerne: <%= "#{feedback.area.title} |  #{feedback.protocol.title} | #{feedback.task.content} "%></h3>
       <%= feedback.title  %> <br>
       <%= feedback.content  %>
     <% end %>
