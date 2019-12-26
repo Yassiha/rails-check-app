@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_26_015709) do
+ActiveRecord::Schema.define(version: 2019_12_26_182123) do
 
   create_table "areas", force: :cascade do |t|
     t.string "title"
@@ -18,6 +18,19 @@ ActiveRecord::Schema.define(version: 2019_12_26_015709) do
     t.string "creator"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.integer "task_id"
+    t.integer "protocol_id"
+    t.integer "area_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["area_id"], name: "index_feedbacks_on_area_id"
+    t.index ["protocol_id"], name: "index_feedbacks_on_protocol_id"
+    t.index ["task_id"], name: "index_feedbacks_on_task_id"
   end
 
   create_table "protocols", force: :cascade do |t|
