@@ -1,10 +1,9 @@
 <%= simple_form_for @protocol, url: area_protocol_path, method: :patch do |f| %>
-<h2>Edit Protocol:</h2>
+<h2>Edit Protocol: <%= link_to "Back", area_protocol_path %></h2>
 <%= f.input :title, label: "Title:" %>
 <%= f.input :content, label: "Description:" %>
 <button type="button" class="btn btn-outline-primary">
   <%= f.button :submit, value: 'Update', "data-disable-with" => "Updating.." %>
 </button>
    <% end %>
-   <%= link_to "Back", area_protocols_path %>
 
