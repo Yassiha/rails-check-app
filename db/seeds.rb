@@ -7,10 +7,16 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 description = 'ceci une description generique'
 
-a = Protocol.new(title: 'Documentation', content: description)
-b = Protocol.new(title: 'Check-List matin', content: description)
-c = Protocol.new(title: 'Check-List soir', content: description)
-d = Protocol.new(title: 'Check-List nuit', content: description)
+e = Area.new(title: 'Est', content: description)
+f = Area.new(title: 'Ouest', content: description)
+
+e.save
+f.save
+
+a = Protocol.new(title: 'Documentation', content: description, area: e)
+b = Protocol.new(title: 'Check-List matin', content: description, area: e)
+c = Protocol.new(title: 'Check-List soir', content: description, area: e)
+d = Protocol.new(title: 'Check-List nuit', content: description, area: e)
 
 a.save
 b.save

@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_25_112758) do
+ActiveRecord::Schema.define(version: 2019_12_26_015709) do
+
+  create_table "areas", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.string "creator"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "protocols", force: :cascade do |t|
     t.string "title"
@@ -20,6 +28,8 @@ ActiveRecord::Schema.define(version: 2019_12_25_112758) do
     t.string "creator"
     t.string "submit_date"
     t.string "submitter"
+    t.integer "area_id"
+    t.index ["area_id"], name: "index_protocols_on_area_id"
   end
 
   create_table "tasks", force: :cascade do |t|
