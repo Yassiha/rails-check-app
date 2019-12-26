@@ -9,7 +9,7 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
-    @proto = Protocol.find(params[:protocol_id])
+    @proto = Protocol.find(params[:area_id])
     @area = @proto.area
   end
 
