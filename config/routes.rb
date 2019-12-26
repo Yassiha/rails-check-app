@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :protocols do
-    resources :tasks
+  resources :areas do
+    resources :protocols do
+      resources :tasks
+    end
   end
 end

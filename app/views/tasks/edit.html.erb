@@ -1,5 +1,5 @@
-<%= simple_form_for @task, url: protocol_task_path(@task), method: :patch do |f| %>
-<h2>Edit Task: <%= link_to "Back", protocol_path(@task.protocol) %>
+<%= simple_form_for @task, url: area_protocol_task_path(@task), method: :patch do |f| %>
+<h2>Edit Task: <%= link_to "Back", area_protocol_path(@task.protocol) %>
 </h2>
 <%= f.input :content, label: "Description:" %>
 <button type="button" class="btn btn-outline-primary">

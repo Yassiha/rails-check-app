@@ -1,18 +1,18 @@
 <ul class="list-group" style="margin: 8px">
-  <h1><%= @protocol.title %> |  <%= link_to "Back", protocols_path %></h1>
+  <h1><%= @protocol.title %> |  <%= link_to "Back", area_protocols_path %></h1>
   <p><%= @protocol.content %></p>
-  <p><%= link_to "Edit Protocol", edit_protocol_path(@protocol), method: :get %></p>
+  <p><%= link_to "Edit Protocol", edit_area_protocol_path(@protocol), method: :get %></p>
   <% @protocol.tasks.each do |task| %>
   <li class="list-group-item">
     <%= task.content %> <br>
     <%= task.check %> <br>
-    <%= link_to "Edit", edit_protocol_task_path(task), method: :get %>
-    <%= link_to "Delete", protocol_task_path(task), method: :delete,
+    <%= link_to "Edit", edit_area_protocol_task_path(task, task.protocol, task.protocol.area), method: :get %>
+    <%= link_to "Delete", area_protocol_task_path(task, task.protocol, task.protocol.area), method: :delete,
                                                     data: { confirm: 'Are you sure?',
                                                     disable_with: 'deleting...' } %>
   </li>
   <% end %>
   <li class="list-group-item">
-    <%= link_to "Add Task", new_protocol_task_path(@protocol) %>
+    <%= link_to "Add Task", new_area_protocol_task_path(@protocol, @protocol.area) %>
   </li>
 </ul>

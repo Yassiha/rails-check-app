@@ -1,0 +1,15 @@
+<ul class="list-group">
+<h1 style="margin: 8px;">All Areas for a given Building</h1>
+
+<% @areas.each do |area|  %>
+<li class="list-group-item">
+  <%= link_to area.title, area_path(area) %>
+  <%= button_to "Delete", area, method: :delete, data: { confirm: 'Are you sure?', disable_with: 'loading...' } %>
+</li>
+<% end %>
+<li class="list-group-item"> <%= link_to "Add", new_area_path  %>
+</li>
+</ul>
+
+
+

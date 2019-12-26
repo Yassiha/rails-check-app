@@ -4,7 +4,7 @@ class ProtocolsController < ApplicationController
   end
 
   def show
-    @protocol = Protocol.find(params[:id])
+    @protocol = Protocol.find(params[:area_id])
   end
 
   def new
@@ -12,33 +12,34 @@ class ProtocolsController < ApplicationController
   end
 
   def edit
-    @protocol = Protocol.find(params[:id])
+    @protocol = Protocol.find(params[:area_id])
   end
 
   def create
     @protocol = Protocol.new(protocol_params)
+    @protocol.area = Area.find(params[:area_id])
     @protocol.save
 
-    redirect_to protocols_path
+    redirect_to area_protocols_path
   end
 
   def update
-    @protocol = Protocol.find(params[:id])
+    @protocol = Protocol.find(params[:area_id])
     @protocol.update(protocol_params)
 
-    redirect_to protocol_path(@protocol)
+    redirect_to area_protocol_path(@protocol)
   end
 
   def destroy
-    @protocol = Protocol.find(params[:id])
+    @protocol = Protocol.find(params[:area_id])
     @protocol.destroy
 
-    redirect_to protocols_path
+    redirect_to area_protocols_path
   end
 
   private
 
   def protocol_params
-    params.require(:protocol).permit(:title, :content)
+    params.require(:protocol).permit(:title, :content, :area_id)
   end
 end

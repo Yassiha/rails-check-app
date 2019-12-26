@@ -8,10 +8,8 @@
 description = 'ceci une description generique'
 
 e = Area.new(title: 'Est', content: description)
-f = Area.new(title: 'Ouest', content: description)
 
 e.save
-f.save
 
 a = Protocol.new(title: 'Documentation', content: description, area: e)
 b = Protocol.new(title: 'Check-List matin', content: description, area: e)
