@@ -9,7 +9,7 @@ class AreasController < ApplicationController
   end
 
   def new
-    @area = area.new
+    @area = Area.new
   end
 
   def edit

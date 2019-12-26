@@ -20,7 +20,7 @@ class ProtocolsController < ApplicationController
     @protocol.area = Area.find(params[:area_id])
     @protocol.save
 
-    redirect_to area_protocols_path
+    redirect_to area_path(@protocol.area)
   end
 
   def update
@@ -34,7 +34,7 @@ class ProtocolsController < ApplicationController
     @protocol = Protocol.find(params[:area_id])
     @protocol.destroy
 
-    redirect_to area_protocols_path
+    redirect_to area_path(@protocol.area)
   end
 
   private
