@@ -15,4 +15,15 @@
   <li class="list-group-item">
     <%= link_to "Add Task", new_area_protocol_task_path(@protocol, @protocol.area) %>
   </li>
+
+  <li class="list-group-item">
+    <h2>Feedbacks</h2>
+  </li>
+  <li class="list-group-item">
+    <% @feedbacks.each do |feedback| %>
+      <h3>Concerne: <%= feedback.task.content %></h3>
+      <%= feedback.title  %> <br>
+      <%= feedback.content  %>
+    <% end %>
+  </li>
 </ul>
