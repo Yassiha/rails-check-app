@@ -1,5 +1,5 @@
 <%= simple_form_for @task, url: area_protocol_tasks_path, method: :post do |f| %>
-<h2>Create Task: <%= link_to "Back", area_protocols_path %>
+<h2>Create Task: <%= link_to "Back", area_protocol_path(@proto, @area) %>
 </h2>
 <%= f.input :content, label: "Description:" %>
 <button type="button" class="btn btn-outline-primary">

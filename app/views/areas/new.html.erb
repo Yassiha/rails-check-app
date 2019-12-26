@@ -1,6 +1,6 @@
 <div class="container" style="margin: 8px;">
   <%= simple_form_for @area, url: areas_path, method: :post do |f| %>
-    <h2>Create Area | <%= link_to "Back", areas_path %>
+    <h2>Create Area | <%= link_to "Back", areas_path%>
 </h2>
     <%= f.input :title, label: "Title:" %>
     <%= f.input :content, label: "Description:" %>

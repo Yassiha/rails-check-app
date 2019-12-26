@@ -9,6 +9,7 @@ class ProtocolsController < ApplicationController
 
   def new
     @protocol = Protocol.new
+    @proto = Area.find(params[:area_id])
   end
 
   def edit
