@@ -6,7 +6,7 @@ class TasksController < ApplicationController
   end
 
   def show
-    @task = Task.find(params[:area_idid])
+    @task = Task.find(params[:area_id])
   end
 
   def edit

@@ -5,7 +5,6 @@
   <% @protocol.tasks.each do |task| %>
   <li class="list-group-item">
     <%= link_to task.title, area_protocol_task_path(task, task.protocol) %> <br>
-    <%= link_to "Edit", edit_area_protocol_task_path(task, task.protocol, task.protocol.area), method: :get %>
     <%= link_to "Delete", area_protocol_task_path(task, task.protocol, task.protocol.area), method: :delete,
                                                     data: { confirm: 'Are you sure?',
                                                     disable_with: 'deleting...' } %>
