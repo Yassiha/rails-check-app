@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2019_12_26_182123) do
 
   create_table "tasks", force: :cascade do |t|
     t.text "content"
-    t.boolean "check", default: false
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "protocol_id"

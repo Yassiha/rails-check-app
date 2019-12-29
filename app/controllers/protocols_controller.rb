@@ -5,11 +5,6 @@ class ProtocolsController < ApplicationController
 
   def show
     @protocol = Protocol.find(params[:area_id])
-    @feedbacks = []
-    feedbacks = Feedback.all
-    feedbacks.each do |feedback|
-      @feedbacks << feedback if feedback.protocol == @protocol
-    end
   end
 
   def new

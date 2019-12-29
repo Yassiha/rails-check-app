@@ -5,6 +5,10 @@ class TasksController < ApplicationController
     @area = @proto.area
   end
 
+  def show
+    @task = Task.find(params[:area_idid])
+  end
+
   def edit
     @task = Task.find(params[:area_id])
   end
@@ -34,6 +38,6 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:content, :check, :protocol, :area)
+    params.require(:task).permit(:content, :title, :protocol, :area)
   end
 end

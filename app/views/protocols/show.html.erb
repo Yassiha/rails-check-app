@@ -4,8 +4,7 @@
   <p><%= link_to "Edit Protocol", edit_area_protocol_path(@protocol), method: :get %></p>
   <% @protocol.tasks.each do |task| %>
   <li class="list-group-item">
-    <%= task.content %> <br>
-    <%= task.check %> <br>
+    <%= link_to task.title, area_protocol_task_path(task, task.protocol) %> <br>
     <%= link_to "Edit", edit_area_protocol_task_path(task, task.protocol, task.protocol.area), method: :get %>
     <%= link_to "Delete", area_protocol_task_path(task, task.protocol, task.protocol.area), method: :delete,
                                                     data: { confirm: 'Are you sure?',
@@ -14,16 +13,5 @@
   <% end %>
   <li class="list-group-item">
     <%= link_to "Add Task", new_area_protocol_task_path(@protocol, @protocol.area) %>
-  </li>
-
-  <li class="list-group-item">
-    <h2>Feedbacks</h2>
-  </li>
-  <li class="list-group-item">
-    <% @feedbacks.each do |feedback| %>
-      <h3>Concerne: <%= "#{feedback.area.title} |  #{feedback.protocol.title} | #{feedback.task.content} "%></h3>
-      <%= feedback.title  %> <br>
-      <%= feedback.content  %>
-    <% end %>
   </li>
 </ul>
