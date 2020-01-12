@@ -7,11 +7,11 @@
 
 <% @protocols.each do |protocol|  %>
 <li class="list-group-item">
-  <%= link_to protocol.title, area_protocol_path(protocol, protocol.area) %>
+  <p><%= link_to protocol.title, area_protocol_path(protocol, protocol.area) %></p>
   <%= button_to "Delete", area_protocol_path(protocol, protocol.area), method: :delete, data: { confirm: 'Are you sure?', disable_with: 'loading...' } %>
 </li>
 <% end %>
-<li class="list-group-item"> <%= link_to "Add", new_area_protocol_path(@area) %>
+<li class="list-group-item"> <%= link_to "Create Mission", new_area_protocol_path(@area) %>
 </li>
 </ul>
 

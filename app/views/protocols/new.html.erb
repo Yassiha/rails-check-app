@@ -1,11 +1,11 @@
 <div class="container" style="margin: 8px;">
   <%= simple_form_for @protocol, url: area_protocols_path, method: :post do |f| %>
-    <h2>Create Objective | <%= link_to "Back", area_path(@proto) %>
+    <h2>Create a Mission | <%= link_to "Back", area_path(@proto) %>
 </h2>
     <%= f.input :title, label: "Title:" %>
     <%= f.input :content, label: "Description:" %>
     <button type="button" class="btn btn-outline-primary" style="margin: 8px;">
-      <%= f.button :submit, value: 'Add', "data-disable-with" => "Creating.." %>
+      <%= f.button :submit, value: 'Create', "data-disable-with" => "Creating.." %>
     </button>
   <% end %>
 </div>
