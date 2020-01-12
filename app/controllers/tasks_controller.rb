@@ -38,6 +38,6 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:content, :title, :protocol, :area)
+    params.require(:task).permit(:content, :title, :type, :protocol, :area)
   end
 end

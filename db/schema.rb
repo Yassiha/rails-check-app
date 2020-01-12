@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_29_132007) do
+ActiveRecord::Schema.define(version: 2019_12_26_015709) do
 
   create_table "areas", force: :cascade do |t|
     t.string "title"
@@ -38,15 +38,7 @@ ActiveRecord::Schema.define(version: 2019_12_29_132007) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "protocol_id"
-    t.integer "type_id"
     t.index ["protocol_id"], name: "index_tasks_on_protocol_id"
-    t.index ["type_id"], name: "index_tasks_on_type_id"
-  end
-
-  create_table "types", force: :cascade do |t|
-    t.string "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end
