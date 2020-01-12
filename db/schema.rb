@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_12_26_015709) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "areas", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -28,7 +31,7 @@ ActiveRecord::Schema.define(version: 2019_12_26_015709) do
     t.string "creator"
     t.string "submit_date"
     t.string "submitter"
-    t.integer "area_id"
+    t.bigint "area_id"
     t.index ["area_id"], name: "index_protocols_on_area_id"
   end
 
@@ -37,8 +40,10 @@ ActiveRecord::Schema.define(version: 2019_12_26_015709) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "protocol_id"
+    t.bigint "protocol_id"
     t.index ["protocol_id"], name: "index_tasks_on_protocol_id"
   end
 
+  add_foreign_key "protocols", "areas"
+  add_foreign_key "tasks", "protocols"
 end
