@@ -3,7 +3,14 @@
     <h2>Create a Mission | <%= link_to "Back", area_path(@proto) %>
 </h2>
     <%= f.input :title, label: "Title:" %>
-    <%= f.input :content, label: "Description:" %>
+    <%= f.input :content, label: "Description:", placeholder: "Suggestion: due date, main goal, .." %>
+    <%= f.input :members,
+                  :input_html => { :rows => 7 , :style => 'width: 100%'},
+                  label: "Members",
+                  placeholder:"- Rosa
+- Stephan
+- ...",
+                  height: 12;  %>
     <button type="button" class="btn btn-outline-primary" style="margin: 8px;">
       <%= f.button :submit, value: 'Create', "data-disable-with" => "Creating.." %>
     </button>
