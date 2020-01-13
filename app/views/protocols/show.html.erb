@@ -1,6 +1,6 @@
 <ul class="list-group" style="margin: 8px">
   <h1><%= @protocol.title %> - Action Plan | <%= link_to "Back", area_path(@protocol.area) %></h1>
-  <p><%= @protocol.content %></p>
+  <p><%= simple_format(@protocol.content) %></p>
   <p><%= link_to "Edit Mission", edit_area_protocol_path(@protocol), method: :get %></p>
   <% @protocol.tasks.each do |task| %>
   <li class="list-group-item">
