@@ -1,6 +1,8 @@
 <ul class="list-group">
 <h1 style="margin: 8px;"><%= @area.title %> |<%= link_to "Back", areas_path %></h1>
 <p><%= simple_format(@area.content) %></p>
+<p><%= simple_format(@area.members) %></p>
+
 <p><%= link_to "Edit WorkGroup", edit_area_path(@area), method: :get %></p>
 
 
