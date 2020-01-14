@@ -29,15 +29,20 @@ class TasksController < ApplicationController
 
   def destroy
     @task = Task.find(params[:area_id])
-    prot = @task.protocol
+    protocol = @task.protocol
     @task.destroy
 
-    redirect_to area_protocol_path(prot)
+    redirect_to area_protocol_path(protocol)
   end
 
   private
 
   def task_params
-    params.require(:task).permit(:content, :title, :type, :protocol, :area)
+    params.require(:task).permit(:content,
+                                 :title,
+                                 :type,
+                                 :protocol,
+                                 :area,
+                                 :checkbox)
   end
 end

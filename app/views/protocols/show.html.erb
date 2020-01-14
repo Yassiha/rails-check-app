@@ -7,6 +7,27 @@
   <% @protocol.tasks.each do |task| %>
   <li class="list-group-item">
     <p><%= link_to task.title, area_protocol_task_path(task, task.protocol) %> <br></p>
+    <%= simple_form_for task, url: area_protocol_task_path(task, task.protocol), method: :patch do |f| %>
+        <% checkbox =
+          if task.checkbox
+            'Done'
+          else
+            'Not done'
+          end %>
+      <%= f.input :checkbox, label: checkbox %>
+    <button type="button" class="btn btn-outline-primary">
+      <%= f.button :submit, value: 'Check', "data-disable-with" => "Creating.." %>
+    </button>
+   <% end %>
+
+
+
+
+
+
+
+
+
     <%= link_to "Delete", area_protocol_task_path(task, task.protocol, task.protocol.area), method: :delete,
                                                     data: { confirm: 'Are you sure?',
                                                     disable_with: 'deleting...' } %>
