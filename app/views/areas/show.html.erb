@@ -1,6 +1,8 @@
 <ul class="list-group">
-<h1 style="margin: 8px;"><%= @area.title %> |<%= link_to "Back", areas_path %></h1>
+<h1 style="margin: 8px;"><%= "#{@area.title}(WorkGroup)" %> |<%= link_to "Back", areas_path %></h1>
+<h2>Objectives</h2>
 <p><%= simple_format(@area.content) %></p>
+<h2>Members:</h2>
 <p><%= simple_format(@area.members) %></p>
 
 <p><%= link_to "Edit WorkGroup", edit_area_path(@area), method: :get %></p>
@@ -8,14 +10,19 @@
 
 
 <% @protocols.each do |protocol|  %>
-<li class="list-group-item">
-  <p><%= link_to protocol.title, area_protocol_path(protocol, protocol.area) %></p>
-  <%= button_to "Delete", area_protocol_path(protocol, protocol.area), method: :delete, data: { confirm: 'Are you sure?', disable_with: 'loading...' } %>
-</li>
-<% end %>
+  <li class="list-group-item">
+    <p><%= link_to protocol.title, area_protocol_path(protocol, protocol.area) %></p>
+    <% protocol.tasks.each do |task| %>
+      <%= simple_form_for task, url: area_protocol_task_path(task, protocol), method: :patch do |f| %>
+      <%= f.input :checkbox, label: task.title %>
+    <% end %>
+    <% end %>
+
+    <%= button_to "Delete Mission", area_protocol_path(protocol, protocol.area), method: :delete, data: { confirm: 'Are you sure?', disable_with: 'loading...' } %>
+  </li>
+  <% end %>
 <li class="list-group-item"> <%= link_to "Create Mission", new_area_protocol_path(@area) %>
 </li>
 </ul>
-
 
 

@@ -4,7 +4,7 @@
 <% @areas.each do |area|  %>
 <li class="list-group-item">
   <p><%= link_to area.title, area_path(area) %></p>
-  <%= button_to "Delete", area, method: :delete, data: { confirm: 'Are you sure?', disable_with: 'loading...' } %>
+  <%= button_to "Delete WorkGroup", area, method: :delete, data: { confirm: 'Are you sure?', disable_with: 'loading...' } %>
 </li>
 <% end %>
 <li class="list-group-item"> <%= link_to "Create a workgroup", new_area_path  %>

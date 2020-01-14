@@ -1,5 +1,5 @@
 <ul class="list-group" style="margin: 8px">
-  <h1><%= @protocol.title %> - Action Plan | <%= link_to "Back", area_path(@protocol.area) %></h1>
+  <h1><%= @protocol.title %>| <%= link_to "Back", area_path(@protocol.area) %></h1>
   <p><%= simple_format(@protocol.content) %></p>
   <p><%= simple_format(@protocol.members) %></p>
 
@@ -19,16 +19,8 @@
       <%= f.button :submit, value: 'Check', "data-disable-with" => "Creating.." %>
     </button>
    <% end %>
-
-
-
-
-
-
-
-
-
-    <%= link_to "Delete", area_protocol_task_path(task, task.protocol, task.protocol.area), method: :delete,
+   <br>
+   <%= button_to "Delete Task", area_protocol_task_path(task, task.protocol, task.protocol.area), method: :delete,
                                                     data: { confirm: 'Are you sure?',
                                                     disable_with: 'deleting...' } %>
   </li>
