@@ -1,5 +1,5 @@
 <ul class="list-group">
-<h1 style="margin: 8px;"><%= "#{@area.title}(WorkGroup)" %> |<%= link_to "Back", areas_path %></h1>
+<h1 style="margin: 8px;"><%= "#{@area.title}(WorkGroup)" %></h1>
 <h2>Objectives</h2>
 <p><%= simple_format(@area.content) %></p>
 <h2>Members:</h2>
@@ -21,8 +21,9 @@
     <%= button_to "Delete Mission", area_protocol_path(protocol, protocol.area), method: :delete, data: { confirm: 'Are you sure?', disable_with: 'loading...' } %>
   </li>
   <% end %>
-<li class="list-group-item"> <%= link_to "Create Mission", new_area_protocol_path(@area) %>
+<li class="list-group-item"> <%= link_to "Create CheckList", new_area_protocol_path(@area) %>
 </li>
 </ul>
+<%= link_to "Back", areas_path %>
 
 

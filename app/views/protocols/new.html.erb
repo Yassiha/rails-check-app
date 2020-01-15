@@ -1,6 +1,6 @@
 <div class="container" style="margin: 8px;">
   <%= simple_form_for @protocol, url: area_protocols_path, method: :post do |f| %>
-    <h2>Create a Mission | <%= link_to "Back", area_path(@proto) %>
+    <h2>Create a CheckList
 </h2>
     <%= f.input :title, label: "Title:" %>
     <%= f.input :content, label: "Description:", placeholder: "Suggestion: due date, main goal, .." %>
@@ -15,5 +15,5 @@
     </button>
   <% end %>
 </div>
-
+<%= link_to "Back", area_path(@proto) %>
 

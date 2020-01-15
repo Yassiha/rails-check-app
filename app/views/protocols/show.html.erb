@@ -1,9 +1,12 @@
 <ul class="list-group" style="margin: 8px">
-  <h1><%= @protocol.title %>| <%= link_to "Back", area_path(@protocol.area) %></h1>
+  <h1><%= @protocol.title %></h1>
+  <h2>Description: </h2>
   <p><%= simple_format(@protocol.content) %></p>
+  <br>
+  <h2>Members</h2>
   <p><%= simple_format(@protocol.members) %></p>
 
-  <p><%= link_to "Edit Mission", edit_area_protocol_path(@protocol), method: :get %></p>
+  <p><%= link_to "Edit description or members", edit_area_protocol_path(@protocol), method: :get %></p>
   <% @protocol.tasks.each do |task| %>
   <li class="list-group-item">
     <p><%= link_to task.title, area_protocol_task_path(task, task.protocol) %> <br></p>
@@ -29,3 +32,5 @@
     <%= link_to "Create Task", new_area_protocol_task_path(@protocol, @protocol.area) %>
   </li>
 </ul>
+
+<%= link_to "Back", area_path(@protocol.area) %>
