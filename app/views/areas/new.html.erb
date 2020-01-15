@@ -1,7 +1,11 @@
-<div class="container" style="margin: 8px;">
+<div class="navbar">
+  <div class="logo">light!</div>
+  <%= link_to "Back", areas_path, class:"logo" %>
+</div>
+
+<div class="container">
   <%= simple_form_for @area, url: areas_path, method: :post do |f| %>
-    <h2>Create WorkGroup | <%= link_to "Back", areas_path%>
-</h2>
+    <h2>Create WorkGroup</h2>
     <%= f.input :title, label: "Title:" %>
     <%= f.input :content, label: "Description:" %>
     <%= f.input :members,

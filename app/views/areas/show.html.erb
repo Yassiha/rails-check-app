@@ -1,29 +1,36 @@
-<ul class="list-group">
-<h1 style="margin: 8px;"><%= "#{@area.title}(WorkGroup)" %></h1>
-<h2>Objectives</h2>
-<p><%= simple_format(@area.content) %></p>
-<h2>Members:</h2>
-<p><%= simple_format(@area.members) %></p>
-
-<p><%= link_to "Edit WorkGroup", edit_area_path(@area), method: :get %></p>
-
-
-
-<% @protocols.each do |protocol|  %>
-  <li class="list-group-item">
-    <p><%= link_to protocol.title, area_protocol_path(protocol, protocol.area) %></p>
-    <% protocol.tasks.each do |task| %>
-      <%= simple_form_for task, url: area_protocol_task_path(task, protocol), method: :patch do |f| %>
-      <%= f.input :checkbox, label: task.title %>
-    <% end %>
-    <% end %>
-
-    <%= button_to "Delete Mission", area_protocol_path(protocol, protocol.area), method: :delete, data: { confirm: 'Are you sure?', disable_with: 'loading...' } %>
-  </li>
-  <% end %>
-<li class="list-group-item"> <%= link_to "Create CheckList", new_area_protocol_path(@area) %>
-</li>
-</ul>
-<%= link_to "Back", areas_path %>
+<div class="navbar">
+  <div class="logo">light!</div>
+  <%= link_to "Back", areas_path, class:"logo" %>
+</div>
+<br>
+<div class="container">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <h1 style="text-align: center;"><%= @area.title %></h1>
+      <h2>Objectives</h2>
+      <p><%= simple_format(@area.content) %></p>
+      <h2>Members:</h2>
+      <p><%= simple_format(@area.members) %></p>
+      <p><%= link_to "Edit WorkGroup", edit_area_path(@area), method: :get %></p>
+    </li>
+    <br>
+      <% @protocols.each do |protocol|  %>
+        <li class="list-group-item">
+          <p><%= link_to protocol.title, area_protocol_path(protocol, protocol.area) %></p>
+          <% protocol.tasks.each do |task| %>
+            <%= simple_form_for task, url: area_protocol_task_path(task, protocol), method: :patch do |f| %>
+              <%= f.input :checkbox, label: task.title %>
+            <% end %>
+          <% end %>
+          <%= button_to "Delete Mission", area_protocol_path(protocol, protocol.area), method: :delete, data: { confirm: 'Are you sure?', disable_with: 'loading...' } %>
+        </li>
+        <br>
+      <% end %>
+      <br>
+    <li class="list-group-item">
+      <%= link_to "Create CheckList", new_area_protocol_path(@area) %>
+    </li>
+  </ul>
+</div>
 
 

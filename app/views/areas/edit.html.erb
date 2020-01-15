@@ -1,16 +1,24 @@
-<%= simple_form_for @area, url: area_path, method: :patch do |f| %>
-<h2>Edit WorkGroup: |<%= link_to "Back", area_path(@area) %>
-</h2>
-<%= f.input :title, label: "Title:" %>
-<%= f.input :content, label: "Description:" %>
-<%= f.input :members,
-            :input_html => { :rows => 7 , :style => 'width: 100%'},
-            label: "Members",
-            placeholder:"- Rosa
+<div class="navbar">
+  <div class="logo">light!</div>
+  <%= link_to "Back", area_path(@area) , class:"logo" %>
+</div>
+
+<div class="container">
+  <%= simple_form_for @area, url: area_path, method: :patch do |f| %>
+    <h2>
+      Edit WorkGroup:
+    </h2>
+    <%= f.input :title, label: "Title:" %>
+    <%= f.input :content, label: "Description:" %>
+    <%= f.input :members,
+                :input_html => { :rows => 7 , :style => 'width: 100%'},
+                label: "Members",
+                placeholder:"- Rosa
 - Stephan
 - ..."%>
-<button type="button" class="btn btn-outline-primary">
-  <%= f.button :submit, value: 'Update', "data-disable-with" => "Updating.." %>
-</button>
-   <% end %>
+    <button type="button" class="btn btn-outline-primary">
+      <%= f.button :submit, value: 'Update', "data-disable-with" => "Updating.." %>
+    </button>
+  <% end %>
+</div>
 

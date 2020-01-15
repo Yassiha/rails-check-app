@@ -1,15 +1,23 @@
-<ul class="list-group">
-<h1 style="margin: 8px;">WorkGroups List</h1>
-
-<% @areas.each do |area|  %>
-<li class="list-group-item">
-  <p><%= link_to area.title, area_path(area) %></p>
-  <%= button_to "Delete WorkGroup", area, method: :delete, data: { confirm: 'Are you sure?', disable_with: 'loading...' } %>
-</li>
-<% end %>
-<li class="list-group-item"> <%= link_to "Create a workgroup", new_area_path  %>
-</li>
-</ul>
-
-
-
+<div class="navbar">
+  <div class="logo">light!</div>
+</div>
+<br>
+<div class="container">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <h1>WorkGroups List</h1>
+    </li>
+    <br>
+    <% @areas.each do |area|  %>
+      <li class="list-group-item">
+        <p><%= link_to area.title, area_path(area) %></p>
+        <%= button_to "Delete WorkGroup", area, method: :delete, data: { confirm: 'Are you sure?', disable_with: 'loading...' } %>
+      </li>
+      <br>
+    <% end %>
+    <br>
+    <li class="list-group-item">
+      <%= link_to "Create a workgroup", new_area_path  %>
+    </li>
+  </ul>
+</div>

@@ -1,7 +1,11 @@
-<div class="container" style="margin: 8px;">
+<div class="navbar">
+  <div class="logo">light!</div>
+  <%= link_to "Back", area_path(@proto), class:"logo" %>
+</div>
+
+<div class="container">
   <%= simple_form_for @protocol, url: area_protocols_path, method: :post do |f| %>
-    <h2>Create a CheckList
-</h2>
+    <h2>Create a CheckList</h2>
     <%= f.input :title, label: "Title:" %>
     <%= f.input :content, label: "Description:", placeholder: "Suggestion: due date, main goal, .." %>
     <%= f.input :members,
@@ -15,5 +19,3 @@
     </button>
   <% end %>
 </div>
-<%= link_to "Back", area_path(@proto) %>
-

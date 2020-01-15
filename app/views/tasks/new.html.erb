@@ -1,11 +1,17 @@
-<%= simple_form_for @task, url: area_protocol_tasks_path, method: :post do |f| %>
-<h2>Create Task: <%= link_to "Back", area_protocol_path(@proto, @area) %>
-</h2>
-<%= f.input :title, label: "Titre:" %>
-<%= f.input :content, label: "Description:" %>
-<button type="button" class="btn btn-outline-primary">
-  <%= f.button :submit, value: 'Create', "data-disable-with" => "Creating.." %>
-</button>
-   <% end %>
+<div class="navbar">
+  <div class="logo">light!</div>
+  <%= link_to "Back", area_protocol_path(@proto, @area), class:"logo" %>
+</div>
+
+<div class="container">
+  <%= simple_form_for @task, url: area_protocol_tasks_path, method: :post do |f| %>
+    <h2>Add Task</h2>
+    <%= f.input :title, label: "Titre:" %>
+    <%= f.input :content, label: "Description:" %>
+    <button type="button" class="btn btn-outline-primary">
+      <%= f.button :submit, value: 'Create', "data-disable-with" => "Creating.." %>
+    </button>
+  <% end %>
+</div>
 
 

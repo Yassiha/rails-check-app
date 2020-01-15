@@ -1,36 +1,45 @@
-<ul class="list-group" style="margin: 8px">
-  <h1><%= @protocol.title %></h1>
-  <h2>Description: </h2>
-  <p><%= simple_format(@protocol.content) %></p>
-  <br>
-  <h2>Members</h2>
-  <p><%= simple_format(@protocol.members) %></p>
-
-  <p><%= link_to "Edit description or members", edit_area_protocol_path(@protocol), method: :get %></p>
-  <% @protocol.tasks.each do |task| %>
-  <li class="list-group-item">
-    <p><%= link_to task.title, area_protocol_task_path(task, task.protocol) %> <br></p>
-    <%= simple_form_for task, url: area_protocol_task_path(task, task.protocol), method: :patch do |f| %>
+<div class="navbar">
+  <div class="logo">light!</div>
+  <%= link_to "Back", area_path(@protocol.area), class:"logo" %>
+</div>
+<br>
+<div class="container">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <h1><%= @protocol.title %></h1>
+      <h2>Description: </h2>
+      <p><%= simple_format(@protocol.content) %></p>
+      <br>
+      <h2>Members</h2>
+      <p><%= simple_format(@protocol.members) %></p>
+      <p><%= link_to "Edit description or members", edit_area_protocol_path(@protocol), method: :get %></p>
+    </li>
+    <br>
+    <% @protocol.tasks.each do |task| %>
+    <li class="list-group-item">
+      <p><%= link_to task.title, area_protocol_task_path(task, task.protocol) %> <br></p>
+      <%= simple_form_for task, url: area_protocol_task_path(task, task.protocol), method: :patch do |f| %>
         <% checkbox =
           if task.checkbox
             'Done'
           else
             'Not done'
           end %>
-      <%= f.input :checkbox, label: checkbox %>
-    <button type="button" class="btn btn-outline-primary">
-      <%= f.button :submit, value: 'Check', "data-disable-with" => "Creating.." %>
-    </button>
-   <% end %>
-   <br>
-   <%= button_to "Delete Task", area_protocol_task_path(task, task.protocol, task.protocol.area), method: :delete,
-                                                    data: { confirm: 'Are you sure?',
-                                                    disable_with: 'deleting...' } %>
-  </li>
-  <% end %>
-  <li class="list-group-item">
-    <%= link_to "Create Task", new_area_protocol_task_path(@protocol, @protocol.area) %>
-  </li>
-</ul>
-
-<%= link_to "Back", area_path(@protocol.area) %>
+        <%= f.input :checkbox, label: checkbox %>
+        <button type="button" class="btn btn-outline-primary">
+          <%= f.button :submit, value: 'Check', "data-disable-with" => "Creating.." %>
+        </button>
+      <% end %>
+      <br>
+      <%= button_to "Delete Task", area_protocol_task_path(task, task.protocol, task.protocol.area), method: :delete,
+                                                       data: { confirm: 'Are you sure?',
+                                                       disable_with: 'deleting...' } %>
+    </li>
+    <br>
+    <% end %>
+    <br>
+    <li class="list-group-item">
+      <%= link_to "Add Task", new_area_protocol_task_path(@protocol, @protocol.area) %>
+    </li>
+  </ul>
+</div>

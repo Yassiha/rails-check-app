@@ -1,6 +1,11 @@
-<%= @task.title  %> <br>
-<%= simple_format(@task.content)  %>
-<br><hr>
-<%= link_to "Back", area_protocol_path(@task.protocol)  %>
-<%= link_to "Edit", edit_area_protocol_task_path(@task, @task.protocol, @task.protocol.area), method: :get %>
+<div class="navbar">
+  <div class="logo">light!</div>
+  <%= link_to "Back", area_protocol_path(@task.protocol), class:"logo" %>
+</div>
 
+<div class="container">
+  <%= @task.title  %> <br>
+  <%= simple_format(@task.content)  %>
+  <br><hr>
+  <%= link_to "Edit", edit_area_protocol_task_path(@task, @task.protocol, @task.protocol.area), method: :get %>
+</div>
