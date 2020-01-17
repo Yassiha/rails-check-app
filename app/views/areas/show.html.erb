@@ -1,6 +1,6 @@
 <div class="navbar">
-  <div class="logo">light!</div>
   <%= link_to "Back", areas_path, class:"logo" %>
+  <div class="logo">light!</div>
 </div>
 <br>
 <div class="container">
@@ -31,15 +31,15 @@
     <div class="card-product">
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
       <div class="card-product-infos">
-        <h2><%= link_to protocol.title, area_protocol_path(protocol, protocol.area) %></h2>
+        <h2>[Checklist] <%= link_to protocol.title, area_protocol_path(protocol, protocol.area) %></h2>
         <p><strong>Members: </strong><%= protocol.members %></p>
         <p>
           <% protocol.tasks.each do |task| %>
             <% checkmessage = %>
               <% if task.checkbox %>
-                <i class="far fa-thumbs-up"></i>
+                <i class="fas fa-check" id="true"></i>
               <% else %>
-                <i class="far fa-thumbs-down"></i>
+                <i class="fas fa-check" id="false"></i>
               <% end %>
           <% end %>
         </p>
