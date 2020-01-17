@@ -1,5 +1,5 @@
 class AreasController < ApplicationController
-   def index
+  def index
     @areas = Area.all
   end
 
