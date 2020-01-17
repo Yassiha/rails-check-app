@@ -3,19 +3,21 @@
   <%= link_to "Back", area_protocol_path, class:"logo" %>
 </div>
 <div class="container">
-  <%= simple_form_for @protocol, url: area_protocol_path, method: :patch do |f| %>
-    <h2>Edition mode: </h2>
-    <%= f.input :title, label: "Title:" %>
-    <%= f.input :content, label: "Description:" %>
-    <%= f.input :members,
-                :input_html => { :rows => 7 , :style => 'width: 100%'},
-                label: "Members",
-                placeholder:"- Rosa
-- Stephan
-- ..."%>
-  <button type="button" class="btn btn-outline-primary">
-    <%= f.button :submit, value: 'Update', "data-disable-with" => "Updating.." %>
-  </button>
-  <% end %>
+  <div class="form">
+    <%= simple_form_for @protocol, url: area_protocol_path, method: :patch do |f| %>
+      <h2>Edition mode: </h2>
+      <%= f.input :title, label: "Title:" %>
+      <%= f.input :content, label: "Description:" %>
+      <%= f.input :members,
+                  :input_html => { :rows => 7 , :style => 'width: 100%'},
+                  label: "Members",
+                  placeholder:"- Rosa
+  - Stephan
+  - ..."%>
+    <button type="button" class="btn btn-outline-primary">
+      <%= f.button :submit, value: 'Update', "data-disable-with" => "Updating.." %>
+    </button>
+    <% end %>
+  </div>
 </div>
 

@@ -4,18 +4,21 @@
 </div>
 
 <div class="container">
-  <%= simple_form_for @protocol, url: area_protocols_path, method: :post do |f| %>
-    <h2>Create a CheckList</h2>
-    <%= f.input :title, label: "Title:" %>
-    <%= f.input :content, label: "Description:", placeholder: "Suggestion: due date, main goal, .." %>
-    <%= f.input :members,
-                  :input_html => { :rows => 7 , :style => 'width: 100%'},
-                  label: "Members",
-                  placeholder:"- Rosa
+  <div class="form">
+    <%= simple_form_for @protocol, url: area_protocols_path, method: :post do |f| %>
+      <h2>Create a CheckList</h2>
+      <%= f.input :title, label: "Title:" %>
+      <%= f.input :content, label: "Description:", placeholder: "Suggestion: due date, main goal, .." %>
+      <%= f.input :members,
+                    :input_html => { :rows => 7 , :style => 'width: 100%'},
+                    label: "Members",
+                    placeholder:"- Rosa
 - Stephan
 - ..."%>
-    <button type="button" class="btn btn-outline-primary">
-      <%= f.button :submit, value: 'Create', "data-disable-with" => "Creating.." %>
-    </button>
-  <% end %>
+      <button type="button" class="btn btn-outline-primary">
+        <%= f.button :submit, value: 'Create', "data-disable-with" => "Creating.." %>
+      </button>
+    <% end %>
+  </div>
+
 </div>

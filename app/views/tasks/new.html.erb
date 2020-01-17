@@ -4,14 +4,16 @@
 </div>
 
 <div class="container">
-  <%= simple_form_for @task, url: area_protocol_tasks_path, method: :post do |f| %>
-    <h2>Add Task</h2>
-    <%= f.input :title, label: "Titre:" %>
-    <%= f.input :content, label: "Description:" %>
-    <button type="button" class="btn btn-outline-primary">
-      <%= f.button :submit, value: 'Create', "data-disable-with" => "Creating.." %>
-    </button>
-  <% end %>
+  <div class="form">
+    <%= simple_form_for @task, url: area_protocol_tasks_path, method: :post do |f| %>
+      <h2>Add Task</h2>
+      <%= f.input :title, label: "Titre:" %>
+      <%= f.input :content, label: "Description:" %>
+      <button type="button" class="btn btn-outline-primary">
+        <%= f.button :submit, value: 'Create', "data-disable-with" => "Creating.." %>
+      </button>
+    <% end %>
+  </div>
 </div>
 
 

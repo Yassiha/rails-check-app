@@ -4,7 +4,8 @@
 </div>
 
 <div class="container">
-  <%= simple_form_for @area, url: areas_path, method: :post do |f| %>
+  <div class="form">
+    <%= simple_form_for @area, url: areas_path, method: :post do |f| %>
     <h2>Create WorkGroup</h2>
     <%= f.input :title, label: "Title:" %>
     <%= f.input :content, label: "Description:" %>
@@ -18,6 +19,7 @@
       <%= f.button :submit, value: 'Create', "data-disable-with" => "Creating.." %>
     </button>
   <% end %>
+  </div>
 </div>
 
 

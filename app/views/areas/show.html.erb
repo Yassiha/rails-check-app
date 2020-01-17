@@ -1,6 +1,6 @@
 <div class="navbar">
   <%= link_to "Back", areas_path, class:"logo" %>
-  <div class="logo">light!</div>
+<div class="logo">light!</div>
 </div>
 <br>
 <div class="container">
@@ -29,7 +29,7 @@
   <br>
   <% @protocols.each do |protocol|  %>
     <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80" />
       <div class="card-product-infos">
         <h2>[Checklist] <%= link_to protocol.title, area_protocol_path(protocol, protocol.area) %></h2>
         <p><strong>Members: </strong><%= protocol.members %></p>
@@ -40,7 +40,7 @@
                 <i class="fas fa-check" id="true"></i>
               <% else %>
                 <i class="fas fa-check" id="false"></i>
-              <% end %>
+            <% end %>
           <% end %>
         </p>
         <p class="btn-delete"><%= link_to "Delete Mission", area_protocol_path(protocol, protocol.area),
