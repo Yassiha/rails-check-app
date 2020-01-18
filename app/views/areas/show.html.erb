@@ -8,21 +8,21 @@
     <div class="card-header">
       <ul class="nav nav-pills card-header-pills">
         <li class="nav-item">
-          <%= link_to "Create checkList", new_area_protocol_path(@area), class: 'nav-link' %>
+          <%= link_to "", new_area_protocol_path(@area), class: 'nav-link far fa-plus-square bigger-icon' %>
         </li>
         <li class="nav-item">
-          <%= link_to "Edit workgroup", edit_area_path(@area), method: :get, class: 'nav-link' %>
+          <%= link_to "", edit_area_path(@area), method: :get, class: 'nav-link far fa-edit bigger-icon' %>
         </li>
         <li class="nav-item">
-          <%= link_to "Delete workgroup", @area, method: :delete, data: { confirm: 'Warning you will delete an entire Workgroup', disable_with: 'loading...' }, class: 'nav-link' %>
+          <%= link_to "", @area, method: :delete, data: { confirm: 'Warning you will delete an entire Workgroup', disable_with: 'loading...' }, class: 'nav-link far fa-trash-alt bigger-icon' %>
         </li>
       </ul>
     </div>
     <div class="card-body">
-      <h2 class="card-title"><%= @area.title %></h4>
+      <h2 class="card-title fas fa-hands-helping">|<%= @area.title %></h4>
       <p class="card-text"><%= simple_format(@area.content) %></p>
       <br><hr>
-      <h2 class="card-title">Membres:</h4>
+      <h2 class="card-title fas fa-users">|Membres: </h4>
       <p class="card-text"><%= simple_format(@area.members) %></p>
     </div>
   </div>
@@ -31,8 +31,8 @@
     <div class="card-product">
       <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80" />
       <div class="card-product-infos">
-        <h2>[Checklist] <%= link_to protocol.title, area_protocol_path(protocol, protocol.area) %></h2>
-        <p><strong>Members: </strong><%= protocol.members %></p>
+        <h2><span class="fas fa-tasks"></span>  <%= link_to protocol.title, area_protocol_path(protocol, protocol.area) %></h2>
+        <p><span class="fas fa-users middle-icon">   </span><%= protocol.members %></p>
         <p>
           <% protocol.tasks.each do |task| %>
             <% checkmessage = %>
@@ -43,8 +43,8 @@
             <% end %>
           <% end %>
         </p>
-        <p class="btn-delete"><%= link_to "Delete Mission", area_protocol_path(protocol, protocol.area),
-        method: :delete, data: { confirm: 'Are you sure?', disable_with: 'loading...', class:"logo" } %></p>
+        <%= link_to "", area_protocol_path(protocol, protocol.area),
+        method: :delete, data: { confirm: 'Are you sure?', disable_with: 'loading...' }, class: 'far fa-trash-alt middle-icon' %></p>
       </div>
     </div>
     <br>
