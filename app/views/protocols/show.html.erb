@@ -4,42 +4,45 @@
 </div>
 <br>
 <div class="container">
-  <ul class="list-group">
-    <li class="list-group-item">
-      <h1><%= @protocol.title %></h1>
-      <h2>Description: </h2>
-      <p><%= simple_format(@protocol.content) %></p>
-      <br>
-      <h2>Members</h2>
-      <p><%= simple_format(@protocol.members) %></p>
-      <p><%= link_to "Edit description or members", edit_area_protocol_path(@protocol), method: :get %></p>
-    </li>
+  <div class="card text-center">
+    <div class="card-header">
+      <ul class="nav nav-pills card-header-pills">
+        <li class="nav-item">
+          <%= link_to "", new_area_protocol_task_path(@protocol, @protocol.area), class: 'nav-link far fa-plus-square bigger-icon'  %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "", edit_area_protocol_path(@protocol), method: :get, class: 'nav-link far fa-edit bigger-icon' %>
+        </li>
+        <li class="nav-item">
+           <%= link_to "", area_protocol_path(@protocol, @protocol.area), method: :delete, data: { confirm: 'Are you sure?', disable_with: 'loading...' }, class: 'nav-link far fa-trash-alt bigger-icon' %></p>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body">
+      <h2 class="card-title fas fa-tasks">|<%= @protocol.title %></h4>
+      <p class="card-text"><%= simple_format(@protocol.content) %></p>
+      <br><hr>
+      <h2 class="card-title fas fa-users">|Membres: </h4>
+      <p class="card-text"><%= simple_format(@protocol.members) %></p>
+    </div>
+  </div>
     <br>
     <% @protocol.tasks.each do |task| %>
-    <li class="list-group-item">
-      <p><%= link_to task.title, area_protocol_task_path(task, task.protocol) %> <br></p>
-      <%= simple_form_for task, url: area_protocol_task_path(task, task.protocol), method: :patch do |f| %>
+    <div class="card-product">
+      <div class="card-product-infos">
+        <h2><span class="fas fa-thumbtack"></span>   <%= link_to task.title, area_protocol_task_path(task, task.protocol) %></h2>
+        <p><%= simple_form_for task, url: area_protocol_task_path(task, task.protocol), method: :patch do |f| %>
         <% checkbox =
-          if task.checkbox
-            'Done'
-          else
-            'Not done'
-          end %>
-        <%= f.input :checkbox, label: checkbox %>
-        <button type="button" class="btn btn-outline-primary">
-          <%= f.button :submit, value: 'Check', "data-disable-with" => "Creating.." %>
-        </button>
-      <% end %>
-      <br>
-      <%= button_to "Delete Task", area_protocol_task_path(task, task.protocol, task.protocol.area), method: :delete,
-                                                       data: { confirm: 'Are you sure?',
-                                                       disable_with: 'deleting...' } %>
-    </li>
+            if task.checkbox
+              "Done"
+            else
+              "To do"
+            end %>
+        <%= f.input :checkbox, label: checkbox %></p>
+        <%= f.button :submit, value: 'Check', "data-disable-with" => "Updating..", class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+    </div>
     <br>
     <% end %>
-    <br>
-    <li class="list-group-item">
-      <%= link_to "Add Task", new_area_protocol_task_path(@protocol, @protocol.area) %>
-    </li>
-  </ul>
 </div>
