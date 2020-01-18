@@ -6,6 +6,7 @@
 <div class="container">
   <div class="form">
     <%= simple_form_for @task, url: area_protocol_task_path(@task), method: :patch do |f| %>
+      <h2>Edit task: </h2>
       <%= f.input :title, label: "Titre:" %>
       <%= f.input :content, label: "Description:" %>
       <button type="button" class="btn btn-outline-primary">

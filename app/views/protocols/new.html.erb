@@ -6,7 +6,7 @@
 <div class="container">
   <div class="form">
     <%= simple_form_for @protocol, url: area_protocols_path, method: :post do |f| %>
-      <h2>Create a CheckList</h2>
+      <h2>Create checklist</h2>
       <%= f.input :title, label: "Title:" %>
       <%= f.input :content, label: "Description:", placeholder: "Suggestion: due date, main goal, .." %>
       <%= f.input :members,

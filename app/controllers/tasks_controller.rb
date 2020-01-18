@@ -23,8 +23,11 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:area_id])
     @task.update(task_params)
-
-    redirect_to area_protocol_path(@task.protocol)
+    if @task.checkbox
+      redirect_to area_protocol_path(@task.protocol, @task)
+    else
+      redirect_to area_protocol_task_path(@task, @task.protocol)
+    end
   end
 
   def destroy

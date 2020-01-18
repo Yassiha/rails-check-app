@@ -3,6 +3,20 @@
 </div>
 <br>
 <div class="container">
+  <div class="card text-center">
+    <div class="card-header">
+      <ul class="nav nav-pills card-header-pills">
+        <li class="nav-item">
+          <%= link_to "Create Project", new_area_path, class: 'nav-link far fa-plus-square bigger-icon' %>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body">
+      <h3 class="card-title">Light!</h4>
+      <p class="card-text">Easier, better, faster, stronger </p>
+    </div>
+  </div>
+  <br>
   <% @areas.each do |area|  %>
     <div class="card-product">
       <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" />
@@ -12,5 +26,3 @@
     </div>
     <br>
   <% end %>
-<br><hr>
-      <%= link_to "  Create Workgroup", new_area_path, class: 'far fa-plus-square bigger-icon'%>

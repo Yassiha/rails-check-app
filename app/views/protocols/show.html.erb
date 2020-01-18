@@ -22,7 +22,7 @@
       <h2 class="card-title fas fa-tasks">|<%= @protocol.title %></h4>
       <p class="card-text"><%= simple_format(@protocol.content) %></p>
       <br><hr>
-      <h2 class="card-title fas fa-users">|Membres: </h4>
+      <h2 class="card-title fas fa-users">|Members: </h4>
       <p class="card-text"><%= simple_format(@protocol.members) %></p>
     </div>
   </div>
@@ -39,7 +39,7 @@
               "To do"
             end %>
         <%= f.input :checkbox, label: checkbox %></p>
-        <%= f.button :submit, value: 'Check', "data-disable-with" => "Updating..", class: 'btn btn-primary' %>
+        <%= f.button :submit, value: 'Update', "data-disable-with" => "Updating..", class: 'btn btn-primary' %>
         <% end %>
       </div>
     </div>
