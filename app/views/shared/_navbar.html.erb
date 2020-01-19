@@ -1,6 +1,14 @@
 <div class="navbar">
     <% if current_user %>
-      <%= link_to 'Back', :back, class: 'logo' %>
+      <% if params[:controller] == 'protocols' && params[:action] == 'show' %>
+        <%= link_to 'Back', area_path(@protocol.area), class: 'logo' %>
+      <% elsif params[:controller] == 'areas' && params[:action] == 'show' %>
+        <%= link_to 'Back', areas_path, class: 'logo'  %>
+      <% elsif params[:controller] == 'tasks' && params[:action] == 'show' %>
+        <%= link_to 'Back', area_protocol_path(@task, @task.protocol), class: 'logo' %>
+      <% else %>
+        <%= link_to 'Back', :back, class: 'logo' %>
+      <% end %>
       <div class="logo">light!</div>
       <%= link_to "Out", destroy_user_session_path, method: :delete, class: 'logo' %>
     <% else %>
