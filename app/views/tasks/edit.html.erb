@@ -1,8 +1,4 @@
-<div class="navbar">
-  <%= link_to "Back", area_protocol_path(@task.protocol), class:"logo" %>
-  <div class="logo">light!</div>
-</div>
-
+<br>
 <div class="container">
   <div class="form">
     <%= simple_form_for @task, url: area_protocol_task_path(@task), method: :patch do |f| %>
