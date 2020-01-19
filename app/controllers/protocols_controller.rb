@@ -4,7 +4,7 @@ class ProtocolsController < ApplicationController
   end
 
   def show
-    @protocol = Protocol.find(params[:id])
+    @protocol = Protocol.find(params[:area_id])
   end
 
   def new

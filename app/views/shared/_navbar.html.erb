@@ -5,7 +5,7 @@
       <% elsif params[:controller] == 'areas' && params[:action] == 'show' %>
         <%= link_to 'Back', areas_path, class: 'logo'  %>
       <% elsif params[:controller] == 'tasks' && params[:action] == 'show' %>
-        <%= link_to 'Back', area_protocol_path(@task, @task.protocol), class: 'logo' %>
+        <%= link_to 'Back', area_protocol_path(@task.protocol), class: 'logo' %>
       <% else %>
         <%= link_to 'Back', :back, class: 'logo' %>
       <% end %>
