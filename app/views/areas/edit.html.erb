@@ -2,13 +2,10 @@
 <div class="container">
   <div class="form">
     <%= simple_form_for @area, url: area_path, method: :patch do |f| %>
-      <h2>
-        Edit Project:
-      </h2>
+      <h2>Update Project</h2>
       <%= f.input :title, label: "Name:" %>
-      <%= f.input :content, label: "Description:" %>
+      <%= f.input :content, label: "Description:", :input_html => { :rows => 7 , :style => 'width: 100%'} %>
       <%= f.input :members,
-                  :input_html => { :rows => 7 , :style => 'width: 100%'},
                   label: "Members",
                   placeholder:"Rosa,Stephan, .."%>
       <button type="button" class="btn btn-outline-primary">

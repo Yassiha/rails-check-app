@@ -2,9 +2,9 @@
 <div class="container">
   <div class="form">
     <%= simple_form_for @task, url: area_protocol_task_path(@task), method: :patch do |f| %>
-      <h2>Edit task: </h2>
+      <h2>Update task</h2>
       <%= f.input :title, label: 'Titre:', required: true %>
-      <%= f.input :content, label: 'Description:' %>
+      <%= f.input :content, label: 'Description:', :input_html => { :rows => 7 , :style => 'width: 100%'} %>
       <%= f.input :start, label: 'Start-date' %>
       <%= f.input :end, label: 'End-date ' %>
       <%= f.input :budget, label: 'Budget' %>

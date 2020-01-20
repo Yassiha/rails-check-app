@@ -2,11 +2,10 @@
 <div class="container">
   <div class="form">
     <%= simple_form_for @area, url: areas_path, method: :post do |f| %>
-    <h2>Create Project</h2>
+    <h2>Start new Project</h2>
     <%= f.input :title, label: "Title:" %>
-    <%= f.input :content, label: "Description:" %>
+    <%= f.input :content, label: "Description:", :input_html => { :rows => 7 , :style => 'width: 100%'} %>
     <%= f.input :members,
-                :input_html => { :rows => 7 , :style => 'width: 100%'},
                 label: "Members",
                 placeholder:"Rosa, Stephan, .."%>
     <button type="button" class="btn btn-outline-primary" style="margin: 8px;">
