@@ -1,10 +1,15 @@
 .navbar {
   background: white;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   width: 100%;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 
+  .fas {
+    display: flex;
+    flex-direction: column;
+    vertical-align: center;
+  }
 
   a {
     text-decoration: none;

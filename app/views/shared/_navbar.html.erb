@@ -1,18 +1,26 @@
 <div class="navbar">
-    <% if current_user %>
+  <% if current_user %>
+    <div class="left">
       <% if params[:controller] == 'protocols' && params[:action] == 'show' %>
-        <%= link_to 'Back', area_path(@protocol.area), class: 'logo' %>
+        <%= link_to '', area_path(@protocol.area), class: 'fas fa-backward bigger-icon' %>
       <% elsif params[:controller] == 'areas' && params[:action] == 'show' %>
-        <%= link_to 'Back', areas_path, class: 'logo'  %>
+        <%= link_to '', areas_path, class: 'fas fa-backward bigger-icon'  %>
       <% elsif params[:controller] == 'tasks' && params[:action] == 'show' %>
-        <%= link_to 'Back', area_protocol_path(@task.protocol), class: 'logo' %>
+        <%= link_to '', area_protocol_path(@task.protocol), class: 'fas fa-backward bigger-icon' %>
       <% else %>
-        <%= link_to 'Back', :back, class: 'logo' %>
+        <%= link_to '', :back, class: 'fas fa-backward bigger-icon' %>
       <% end %>
-      <div class="logo">light!</div>
-      <%= link_to "Out", destroy_user_session_path, method: :delete, class: 'logo' %>
+    </div>
+    <div class="center">
+      <div class="logo">
+        <p>light!</p>
+      </div>
+    </div>
+    <div class="right">
+      <%= link_to "", destroy_user_session_path, method: :delete, class: 'fas fa-sign-out-alt bigger-icon' %>
     <% else %>
       <div class="logo">light!</div>
-      <%= link_to "Login", areas_path, class:"logo" %>
+      <%= link_to "", areas_path, class: 'fas fa-sign-in-alt bigger-icon' %>
     <% end %>
+    </div>
 </div>

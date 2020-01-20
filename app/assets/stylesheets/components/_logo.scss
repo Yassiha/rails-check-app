@@ -1,16 +1,17 @@
   .logo{
     font-size: 200%;
-    border: 2px solid black;
-    height: 60px;
-    width: 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     font-family: 'Permanent Marker', cursive;
-    box-shadow: 5px 5px 5px #bc002d;
     margin-right: 24px;
     margin-left: 24px;
+    padding: 8px;
+
+    p {
+      text-decoration: underline;
+    }
   }
 
     .logo-big{
