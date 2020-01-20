@@ -18,13 +18,14 @@
     <h2 class="card-title fas fa-thumbtack">|<%= @task.title %></h4>
     <p class="card-text"><%= simple_format(@task.content) %></p>
     <hr>
-    <h4 class="card-title">Priority: </h4>
+    <h4 class="card-title fas fa-star">Priority: </h4>
     <p class="card-text"><%= @task.priority %></p>
     <hr>
-    <h4 class="card-title">Budget: </h4>
+    <h4 class="card-title fas fa-dollar-sign">|Budget: </h4>
     <p class="card-text"><%= @task.budget %>€</p>
     <hr>
-    <h4 class="card-text"><%= "Started at #{@task.start.strftime("%d/%m/%Y")}| Due date: #{@task.end.strftime("%d/%m/%Y")}"  %></h4>
+    <h4 class="card-title fas fa-calendar-alt">|Time</h4>
+      <p class="card-text"> From <strong><%= @task.start.strftime("%d/%m/%Y") %></strong> to <strong><%= @task.end.strftime("%d/%m/%Y") %> </strong></p>
     </div>
 
 </div>

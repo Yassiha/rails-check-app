@@ -24,7 +24,8 @@
       <h2 class="card-title fas fa-users">|Members: </h4>
       <p class="card-text"><%= simple_format(@protocol.members) %></p>
       <br><hr>
-      <h4 class="card-text"><%= "Started at #{@protocol.start.strftime("%d/%m/%Y")}| Due date: #{@protocol.end.strftime("%d/%m/%Y")}"  %></h4>
+        <h2 class="card-title far fa-calendar-alt"></h4>
+        <p class="card-text">From <strong><%= @protocol.start.strftime("%d/%m/%Y") %></strong> to <strong><%= @protocol.end.strftime("%d/%m/%Y") %> </strong></p>
     </div>
     <br><hr>
   </div>
