@@ -3,10 +3,16 @@
   <div class="form">
     <%= simple_form_for @task, url: area_protocol_task_path(@task), method: :patch do |f| %>
       <h2>Edit task: </h2>
-      <%= f.input :title, label: "Titre:" %>
-      <%= f.input :content, label: "Description:" %>
+      <%= f.input :title, label: 'Titre:', required: true %>
+      <%= f.input :content, label: 'Description:' %>
+      <%= f.input :start, label: 'Start-date' %>
+      <%= f.input :end, label: 'End-date ' %>
+      <%= f.input :budget, label: 'Budget' %>
+      <%= f.input :priority, label: 'Priority', collection: ['High', 'Moderate', 'Low'], required: true %>
+      <%= f.input :status, label: 'Status', collection: ['0%' ,'25%', '50%', '75%', '100%'], required: true %>
+      <%= f.input :checkbox, label: 'Done!', hint: 'If checked as done, Status is automatically set to 100%'  %>
       <button type="button" class="btn btn-outline-primary">
-        <%= f.button :submit, value: 'Add', "data-disable-with" => "Creating.." %>
+        <%= f.button :submit, value: 'Update task', "data-disable-with" => "Creating.." %>
       </button>
     <% end %>
   </div>

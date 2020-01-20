@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_19_124346) do
+ActiveRecord::Schema.define(version: 2020_01_20_170122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,11 @@ ActiveRecord::Schema.define(version: 2020_01_19_124346) do
     t.datetime "updated_at", null: false
     t.bigint "protocol_id"
     t.boolean "checkbox", default: false
+    t.string "priority"
+    t.date "start"
+    t.date "end"
+    t.string "status"
+    t.integer "budget"
     t.index ["protocol_id"], name: "index_tasks_on_protocol_id"
   end
 
