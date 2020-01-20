@@ -47,6 +47,6 @@ class ProtocolsController < ApplicationController
   private
 
   def protocol_params
-    params.require(:protocol).permit(:title, :content, :members, :area_id)
+    params.require(:protocol).permit(:title, :content, :members, :area_id, :start, :end)
   end
 end

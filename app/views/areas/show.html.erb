@@ -27,7 +27,8 @@
     <div class="card-product">
       <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80" />
       <div class="card-product-infos">
-        <h2><span class="fas fa-tasks"></span>  <%= link_to protocol.title, area_protocol_path(protocol, protocol.area) %></h2>
+        <h2><span class="fas fa-tasks"></span>  <%= link_to protocol.title, area_protocol_path(protocol, protocol.area) %> <%= link_to "", area_protocol_path(protocol, protocol.area),
+        method: :delete, data: { confirm: 'Are you sure?', disable_with: 'loading...' }, class: 'far fa-trash-alt middle-icon' %></h2>
         <p><span class="fas fa-users middle-icon">   </span><%= protocol.members %></p>
         <p>
           <% protocol.tasks.each do |task| %>
@@ -39,8 +40,7 @@
               <% end %>
           <% end %>
         </p>
-        <%= link_to "", area_protocol_path(protocol, protocol.area),
-        method: :delete, data: { confirm: 'Are you sure?', disable_with: 'loading...' }, class: 'far fa-trash-alt middle-icon' %></p>
+        <p class="card-text"><%= "Started at #{protocol.start.strftime("%d/%m/%Y")}| Due date: #{protocol.end.strftime("%d/%m/%Y")}"  %></p>
       </div>
     </div>
     <br>

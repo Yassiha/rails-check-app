@@ -23,6 +23,8 @@
       <br><hr>
       <h2 class="card-title fas fa-users">|Members: </h4>
       <p class="card-text"><%= simple_format(@protocol.members) %></p>
+      <br><hr>
+      <h4 class="card-text"><%= "Started at #{@protocol.start.strftime("%d/%m/%Y")}| Due date: #{@protocol.end.strftime("%d/%m/%Y")}"  %></h4>
     </div>
     <br><hr>
   </div>

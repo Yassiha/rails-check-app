@@ -5,6 +5,8 @@
       <h2>New mission</h2>
       <%= f.input :title, label: "Title:" %>
       <%= f.input :content, label: "Informations:", :input_html => { :rows => 7 , :style => 'width: 100%'} %>
+      <%= f.input :start, label: 'Start-date' %>
+      <%= f.input :end, label: 'End-date ' %>
       <%= f.input :members,
                     label: "Members",
                     placeholder:"Rosa, Stephan, .."%>
