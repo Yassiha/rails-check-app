@@ -16,18 +16,22 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.protocol = Protocol.find(params[:area_id])
-    @task.save
-    redirect_to area_protocol_path(@task.protocol, @task)
+    if @task.title == ''
+      redirect_to new_area_protocol_task_path(@task.protocol, @task.protocol.area)
+    else
+      @task.save
+      redirect_to area_protocol_path(@task.protocol, @task)
+    end
   end
 
   def update
     @task = Task.find(params[:area_id])
     @task.update(task_params)
-    if @task.checkbox
-      redirect_to area_protocol_path(@task.protocol, @task)
-    else
-      redirect_to area_protocol_task_path(@task, @task.protocol)
-    end
+    @task.checkbox = true if @task.status == '100%'
+    @task.status = '100%' if @task.checkbox == true
+
+    @task.save
+    redirect_to area_protocol_task_path(@task, @task.protocol)
   end
 
   def destroy
@@ -46,6 +50,11 @@ class TasksController < ApplicationController
                                  :type,
                                  :protocol,
                                  :area,
-                                 :checkbox)
+                                 :checkbox,
+                                 :start,
+                                 :end,
+                                 :budget,
+                                 :priority,
+                                 :status)
   end
 end

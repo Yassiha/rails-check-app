@@ -5,6 +5,13 @@ class ProtocolsController < ApplicationController
 
   def show
     @protocol = Protocol.find(params[:area_id])
+    @progress = 0
+    if @protocol.tasks.count != 0
+      @protocol.tasks.each do |task|
+        @progress += task.status.to_i
+      end
+      @progress = @progress / @protocol.tasks.count
+    end
   end
 
   def new
@@ -27,7 +34,6 @@ class ProtocolsController < ApplicationController
   def update
     @protocol = Protocol.find(params[:area_id])
     @protocol.update(protocol_params)
-
     redirect_to area_protocol_path(@protocol)
   end
 

@@ -11,9 +11,20 @@
       </li>
     </ul>
   </div>
+  <div class="progress">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: <%= @task.status %>"><%= @task.status  %></div>
+  </div>
   <div class="card-body">
     <h2 class="card-title fas fa-thumbtack">|<%= @task.title %></h4>
     <p class="card-text"><%= simple_format(@task.content) %></p>
+    <hr>
+    <h4 class="card-title">Priority: </h4>
+    <p class="card-text"><%= @task.priority %></p>
+    <hr>
+    <h4 class="card-title">Budget: </h4>
+    <p class="card-text"><%= @task.budget %>€</p>
+    <hr>
+    <h4 class="card-text"><%= "Started at #{@task.start.strftime("%d/%m/%Y")}| Due date: #{@task.end.strftime("%d/%m/%Y")}"  %></h4>
     </div>
-    <br>
+
 </div>
