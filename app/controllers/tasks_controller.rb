@@ -55,6 +55,7 @@ class TasksController < ApplicationController
                                  :end,
                                  :budget,
                                  :priority,
-                                 :status)
+                                 :status,
+                                 :member)
   end
 end

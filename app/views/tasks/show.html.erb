@@ -24,6 +24,18 @@
     <h4 class="card-title fas fa-dollar-sign">|Budget: </h4>
     <p class="card-text"><%= @task.budget %>€</p>
     <hr>
+    <h4 class="card-title fas fa-spinner">|Status: </h4>
+      <div class="task-form">
+        <%= simple_form_for @task, url: area_protocol_task_path(@task), method: :patch do |f| %>
+          <%= f.input :status, label: 'Status', collection: ['0%' ,'25%', '50%', '75%', '100%'], required: true %>
+          <%= f.input :member, label: 'Collaborator'  %>
+          <%= f.input :checkbox, label: 'Done!', hint: 'If checked as done, Status is automatically set to 100%'  %>
+          <button type="button" class="btn btn-outline-primary">
+            <%= f.button :submit, value: 'Update task', "data-disable-with" => "Creating.." %>
+          </button>
+        <% end %>
+      </div>
+    <hr>
     <h4 class="card-title fas fa-calendar-alt">|Time</h4>
       <p class="card-text"> From <strong><%= @task.start.strftime("%d/%m/%Y") %></strong> to <strong><%= @task.end.strftime("%d/%m/%Y") %> </strong></p>
     </div>
