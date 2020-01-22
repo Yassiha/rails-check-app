@@ -30,7 +30,7 @@
     <br><hr>
   </div>
     <br>
-    <% @protocol.tasks.each do |task| %>
+    <% @protocol.tasks.order(end: :asc, priority: :asc, status: :desc).each do |task| %>
     <div class="card-product">
       <div class="card-product-infos">
         <h2>
@@ -43,6 +43,7 @@
         <% end %>
         </h2>
         <p>From <strong> <%= task.start.strftime("%d/%m/%Y") %></strong> to <strong><%= task.end.strftime("%d/%m/%Y") %></strong> </p>
+        <p>Priority: <%= task.priority %></p>
         <p>Status: <%= task.status  %>
           <% context_message =
               if task.status != '100%'
@@ -54,7 +55,6 @@
             <%= "| #{task.member} #{context_message}"  %>
           <% end %>
          </p>
-        <p>Priority: <%= task.priority %></p>
       </div>
     </div>
     <br>
