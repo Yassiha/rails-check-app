@@ -43,7 +43,17 @@
         <% end %>
         </h2>
         <p>From <strong> <%= task.start.strftime("%d/%m/%Y") %></strong> to <strong><%= task.end.strftime("%d/%m/%Y") %></strong> </p>
-        <p>Status: <%= task.status  %></p>
+        <p>Status: <%= task.status  %>
+          <% context_message =
+              if task.status != '100%'
+                " is working on it"
+              else
+                " has completed this task"
+              end %>
+          <% if task.member != nil %>
+            <%= "| #{task.member} #{context_message}"  %>
+          <% end %>
+         </p>
         <p>Priority: <%= task.priority %></p>
       </div>
     </div>
