@@ -24,6 +24,9 @@
     <h4 class="card-title fas fa-dollar-sign">|Budget: </h4>
     <p class="card-text"><%= @task.budget %>€</p>
     <hr>
+    <h4 class="card-title fas fa-calendar-alt">|Time</h4>
+    <p class="card-text"> From <strong><%= @task.start.strftime("%d/%m/%Y") %></strong> to <strong><%= @task.end.strftime("%d/%m/%Y") %> </strong></p>
+    <hr>
     <h4 class="card-title fas fa-spinner">|Status: </h4>
       <div class="task-form">
         <%= simple_form_for @task, url: area_protocol_task_path(@task), method: :patch do |f| %>
@@ -35,9 +38,6 @@
           </button>
         <% end %>
       </div>
-    <hr>
-    <h4 class="card-title fas fa-calendar-alt">|Time</h4>
-      <p class="card-text"> From <strong><%= @task.start.strftime("%d/%m/%Y") %></strong> to <strong><%= @task.end.strftime("%d/%m/%Y") %> </strong></p>
-    </div>
+  </div>
 
 </div>

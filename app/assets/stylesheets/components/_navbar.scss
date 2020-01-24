@@ -1,6 +1,6 @@
 .navbar {
-  background: white;
-  display: flex;
+  background-color: transparent;
+  transition: 0.5s background-color ease;  display: flex;
   align-items: center;
   width: 100%;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -14,4 +14,16 @@
   a {
     text-decoration: none;
   }
+
+  h2 {}
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar-white {
+  background-color: white;
 }
