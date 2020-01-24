@@ -20,6 +20,9 @@
       <br><hr>
       <h2 class="card-title fas fa-users">|Members: </h4>
       <p class="card-text"><%= simple_format(@area.members) %></p>
+      <br><hr>
+      <h2 class="card-title fas fa-calendar-alt">|D-Day: </h4>
+      <p class="card-text"><%= @area.d_day.strftime("%d/%m/%Y") %></p>
     </div>
   </div>
   <br>
