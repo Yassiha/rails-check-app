@@ -53,7 +53,6 @@
               'red'
             else
               'gray'
-              raise
         end %>
         <p class="<%= date_color %>">From <strong> <%= task.start.strftime("%d/%m/%Y") %></strong> to <strong><%= task.end.strftime("%d/%m/%Y") %></strong> </p>
         <p>Priority: <%= task.priority %></p>
