@@ -42,7 +42,20 @@
           <i class="fas fa-check" id="false"></i>
         <% end %>
         </h2>
-        <p>From <strong> <%= task.start.strftime("%d/%m/%Y") %></strong> to <strong><%= task.end.strftime("%d/%m/%Y") %></strong> </p>
+        <% date_color =
+            if task.status == "100%"
+              'green'
+            elsif Date.today >= task.start && Date.today < task.end
+              'green'
+            elsif Date.today >= task.start && Date.today == task.end
+              'orange'
+            elsif Date.today >= task.start && Date.today > task.end
+              'red'
+            else
+              'gray'
+              raise
+        end %>
+        <p class="<%= date_color %>">From <strong> <%= task.start.strftime("%d/%m/%Y") %></strong> to <strong><%= task.end.strftime("%d/%m/%Y") %></strong> </p>
         <p>Priority: <%= task.priority %></p>
         <p>Status: <%= task.status  %>
           <% context_message =

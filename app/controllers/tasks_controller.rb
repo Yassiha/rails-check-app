@@ -7,6 +7,18 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:area_id])
+    @date_color =
+      if @task.status == "100%"
+              'green'
+      elsif Date.today >= @task.start && Date.today < @task.end
+        'green'
+      elsif Date.today >= @task.start && Date.today == @task.end
+        'orange'
+      elsif Date.today >= @task.start && Date.today > @task.end
+        'red'
+      else
+        'gray'
+      end
   end
 
   def edit

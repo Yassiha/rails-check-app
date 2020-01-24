@@ -25,7 +25,7 @@
     <p class="card-text"><%= @task.budget %>€</p>
     <hr>
     <h4 class="card-title fas fa-calendar-alt"> Time</h4>
-    <p class="card-text"> From <strong><%= @task.start.strftime("%d/%m/%Y") %></strong> to <strong><%= @task.end.strftime("%d/%m/%Y") %> </strong></p>
+    <p class="card-text <%= @date_color %>"> From <strong><%= @task.start.strftime("%d/%m/%Y") %></strong> to <strong><%= @task.end.strftime("%d/%m/%Y") %> </strong></p>
     <hr>
     <h4 class="card-title fas fa-spinner"> Status: </h4>
       <div class="task-form">
