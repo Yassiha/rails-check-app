@@ -15,13 +15,13 @@
       </ul>
     </div>
     <div class="card-body">
-      <h2 class="card-title fas fa-hands-helping">|<%= @area.title %></h4>
+      <h2 class="card-title fas fa-hands-helping"> <%= @area.title %></h4>
       <p class="card-text"><%= simple_format(@area.content) %></p>
       <br><hr>
-      <h2 class="card-title fas fa-users">|Members: </h4>
+      <h2 class="card-title fas fa-users"> Members: </h4>
       <p class="card-text"><%= simple_format(@area.members) %></p>
       <br><hr>
-      <h2 class="card-title fas fa-calendar-alt">|D-Day: </h4>
+      <h2 class="card-title fas fa-calendar-alt"> D-Day: </h4>
       <p class="card-text"><%= @area.d_day.strftime("%d/%m/%Y") %></p>
     </div>
   </div>

@@ -18,13 +18,13 @@
       <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: <%= @progress %>%"><%= @progress  %>%</div>
     </div>
     <div class="card-body">
-      <h2 class="card-title fas fa-tasks">|<%= @protocol.title %></h4>
+      <h2 class="card-title fas fa-tasks"> <%= @protocol.title %></h4>
       <p class="card-text"><%= simple_format(@protocol.content) %></p>
       <br><hr>
-      <h2 class="card-title fas fa-users">|Members: </h4>
+      <h2 class="card-title fas fa-users"> Members: </h4>
       <p class="card-text"><%= simple_format(@protocol.members) %></p>
       <br><hr>
-        <h2 class="card-title far fa-calendar-alt">|Time: </h4>
+        <h2 class="card-title fas fa-calendar-alt"> Time: </h4>
         <p class="card-text">From <strong><%= @protocol.start.strftime("%d/%m/%Y") %></strong> to <strong><%= @protocol.end.strftime("%d/%m/%Y") %> </strong></p>
     </div>
     <br><hr>
