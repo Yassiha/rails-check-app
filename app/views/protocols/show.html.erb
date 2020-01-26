@@ -31,44 +31,45 @@
   </div>
     <br>
     <% @protocol.tasks.order(end: :asc, priority: :asc, status: :desc).each do |task| %>
-    <div class="card-product">
-      <div class="card-product-infos">
-        <h2>
-          <span class="fas fa-thumbtack"></span>
-          <%= link_to task.title, area_protocol_task_path(task, task.protocol) %>
-                  <% if task.checkbox %>
-          <i class="fas fa-check" id="true"></i>
-        <% else %>
-          <i class="fas fa-check" id="false"></i>
-        <% end %>
-        </h2>
-        <% date_color =
-            if task.status == "100%"
-              'green'
-            elsif Date.today >= task.start && Date.today < task.end
-              'green'
-            elsif Date.today >= task.start && Date.today == task.end
-              'orange'
-            elsif Date.today >= task.start && Date.today > task.end
-              'red'
-            else
-              'gray'
-        end %>
-        <p class="<%= date_color %>">From <strong> <%= task.start.strftime("%d/%m/%Y") %></strong> to <strong><%= task.end.strftime("%d/%m/%Y") %></strong> </p>
-        <p>Priority: <%= task.priority %></p>
-        <p>Status: <%= task.status  %>
-          <% context_message =
-              if task.status != '100%'
-                " is working on it"
+    <%= link_to area_protocol_task_path(task, task.protocol) do %>
+      <div class="card-product no-link-style">
+        <div class="card-product-infos">
+          <h2>
+            <span class="fas fa-thumbtack"> <%= task.title %></span>
+              <% if task.checkbox %>
+                <i class="fas fa-check" id="true"></i>
+              <% else %>
+                <i class="fas fa-check" id="false"></i>
+              <% end %>
+          </h2>
+          <% date_color =
+              if task.status == "100%"
+                'green'
+              elsif Date.today >= task.start && Date.today < task.end
+                'green'
+              elsif Date.today >= task.start && Date.today == task.end
+                'orange'
+              elsif Date.today >= task.start && Date.today > task.end
+                'red'
               else
-                " has completed this task"
-              end %>
-          <% if task.member != nil %>
-            <%= "| #{task.member} #{context_message}"  %>
-          <% end %>
-         </p>
+                'gray'
+          end %>
+          <p class="<%= date_color %>">From <strong> <%= task.start.strftime("%d/%m/%Y") %></strong> to <strong><%= task.end.strftime("%d/%m/%Y") %></strong> </p>
+          <p>Priority: <span> <%= task.priority %> </span></p>
+          <p>Status: <span> <%= task.status %> </span>
+            <% context_message =
+                if task.status != '100%'
+                  " is working on it"
+                else
+                  " has completed this task"
+                end %>
+            <% if task.member != nil %>
+              <%= "| #{task.member} #{context_message}"  %>
+            <% end %>
+           </p>
+        </div>
       </div>
-    </div>
+    <% end %>
     <br>
     <% end %>
 </div>
