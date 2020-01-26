@@ -63,13 +63,25 @@ a:hover {
 }
 
 .orange {
-  color: orange;
+  color: #F0A56E;
 }
 
 .green {
-  color: green;
+  color: #6ADF90;
 }
 
 .red {
-  color: red;
+  color: #F2545B;
+}
+
+.high {
+  font-weight: bolder;
+}
+
+.middle {
+  font-weight: normal;
+}
+
+.low {
+  font-weight: lighter;
 }

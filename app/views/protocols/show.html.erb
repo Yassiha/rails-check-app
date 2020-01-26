@@ -31,7 +31,7 @@
     <br>
   </div>
     <br>
-    <% @protocol.tasks.order(end: :asc, priority: :asc, status: :desc).each do |task| %>
+    <% @protocol.tasks.order(checkbox: :asc, end: :asc, priority: :asc).each do |task| %>
     <%= link_to area_protocol_task_path(task, task.protocol) do %>
       <div class="card-product no-link-style">
         <div class="card-product-infos">
@@ -44,24 +44,24 @@
           </h2>
           <% date_color =
               if task.status == "100%"
-                'green'
+                'green low'
               elsif Date.today >= task.start && Date.today < task.end
-                'green'
+                'green high'
               elsif Date.today >= task.start && Date.today == task.end
                 'orange'
               elsif Date.today >= task.start && Date.today > task.end
-                'red'
+                'red high'
               else
-                'gray'
+                'gray low'
           end %>
 
           <% priority_color =
               if task.priority == "High"
-                'red'
+                'high'
               elsif task.priority == "Moderate"
-                'orange'
+                'middle'
               elsif task.priority == "Low"
-                'green'
+                'low'
               end %>
 
           <p>From <strong class="<%= date_color %>"> <%= task.start.strftime("%d/%m/%Y") %></strong> to <strong class="<%= date_color %>"><%= task.end.strftime("%d/%m/%Y") %></strong> </p>
