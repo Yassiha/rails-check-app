@@ -27,6 +27,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    @task.status = '0%'
     @task.protocol = Protocol.find(params[:area_id])
     if @task.title == ''
       redirect_to new_area_protocol_task_path(@task.protocol, @task.protocol.area)

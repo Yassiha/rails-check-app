@@ -9,8 +9,7 @@
       <%= f.input :end, label: 'End-date ' %>
       <%= f.input :budget, label: 'Budget' %>
       <%= f.input :member, label: 'Collaborator'  %>
-      <%= f.input :priority, label: 'Priority', collection: ['High', 'Moderate', 'Low'], required: true %>
-      <%= f.input :status, label: 'Status', collection: ['0%', '25%', '50%', '75%', '100%'], required: true %>
+      <%= f.input :priority, label: 'Priority', collection: ['High', 'Moderate', 'Low'], default: 'Moderate' %>
       <button type="button" class="btn btn-outline-primary">
         <%= f.button :submit, value: 'Add task', "data-disable-with" => "Creating.." %>
       </button>
