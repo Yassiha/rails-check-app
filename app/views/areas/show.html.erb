@@ -15,14 +15,16 @@
       </ul>
     </div>
     <div class="card-body">
+      <br>
       <h2 class="card-title fas fa-hands-helping"> <%= @area.title %></h4>
       <p class="card-text"><%= simple_format(@area.content) %></p>
-      <br><hr>
+      <br><hr><br>
       <h2 class="card-title fas fa-users"> Members: </h4>
       <p class="card-text"><%= simple_format(@area.members) %></p>
-      <br><hr>
+      <br><hr><br>
       <h2 class="card-title fas fa-calendar-alt"> D-Day: </h4>
       <p class="card-text"><%= @area.d_day.strftime("%d/%m/%Y") %></p>
+      <br>
     </div>
   </div>
   <br>
@@ -30,15 +32,15 @@
     <%= link_to area_protocol_path(protocol, protocol.area) do %>
       <div class="card-product">
         <div class="card-product-infos">
-          <h2><span class="fas fa-tasks"></span>  <%= protocol.title %> </h2>
-          <p><span class="fas fa-users middle-icon">   </span><%= protocol.members %></p>
+          <h2><span class="fas fa-tasks"></span> <%= protocol.title %> </h2>
+          <p><span class="fas fa-users middle-icon"></span> <%= protocol.members %></p>
           <p>
             <% protocol.tasks.each do |task| %>
               <% checkmessage = %>
                 <% if task.checkbox %>
-                  <i class="fas fa-check" id="true"></i>
+                  <i class="fas fa-thumbtack" id="true"></i>
                 <% else %>
-                  <i class="fas fa-check" id="false"></i>
+                  <i class="fas fa-thumbtack" id="false"></i>
                 <% end %>
             <% end %>
           </p>

@@ -18,16 +18,17 @@
       <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: <%= @progress %>%"><%= @progress  %>%</div>
     </div>
     <div class="card-body">
+      <br>
       <h2 class="card-title fas fa-tasks"> <%= @protocol.title %></h4>
       <p class="card-text"><%= simple_format(@protocol.content) %></p>
-      <br><hr>
+      <br><hr><br>
       <h2 class="card-title fas fa-users"> Members: </h4>
       <p class="card-text"><%= simple_format(@protocol.members) %></p>
-      <br><hr>
+      <br><hr><br>
         <h2 class="card-title fas fa-calendar-alt"> Time: </h4>
         <p class="card-text">From <strong><%= @protocol.start.strftime("%d/%m/%Y") %></strong> to <strong><%= @protocol.end.strftime("%d/%m/%Y") %> </strong></p>
     </div>
-    <br><hr>
+    <br>
   </div>
     <br>
     <% @protocol.tasks.order(end: :asc, priority: :asc, status: :desc).each do |task| %>
@@ -35,11 +36,10 @@
       <div class="card-product no-link-style">
         <div class="card-product-infos">
           <h2>
-            <span class="fas fa-thumbtack"> <%= task.title %></span>
               <% if task.checkbox %>
-                <i class="fas fa-check" id="true"></i>
+                <span class="fas fa-thumbtack green"></span> <%= task.title %>
               <% else %>
-                <i class="fas fa-check" id="false"></i>
+                <span class="fas fa-thumbtack"> </span> <%= task.title %>
               <% end %>
           </h2>
           <% date_color =
@@ -54,8 +54,18 @@
               else
                 'gray'
           end %>
-          <p class="<%= date_color %>">From <strong> <%= task.start.strftime("%d/%m/%Y") %></strong> to <strong><%= task.end.strftime("%d/%m/%Y") %></strong> </p>
-          <p>Priority: <span> <%= task.priority %> </span></p>
+
+          <% priority_color =
+              if task.priority == "High"
+                'red'
+              elsif task.priority == "Moderate"
+                'orange'
+              elsif task.priority == "Low"
+                'green'
+              end %>
+
+          <p>From <strong class="<%= date_color %>"> <%= task.start.strftime("%d/%m/%Y") %></strong> to <strong class="<%= date_color %>"><%= task.end.strftime("%d/%m/%Y") %></strong> </p>
+          <p>Priority: <span class="<%= priority_color %>"> <%= task.priority %> </span></p>
           <p>Status: <span> <%= task.status %> </span>
             <% context_message =
                 if task.status != '100%'
