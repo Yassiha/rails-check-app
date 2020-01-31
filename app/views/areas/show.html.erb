@@ -22,31 +22,43 @@
       <h2 class="card-title fas fa-users"> Members: </h4>
       <p class="card-text"><%= simple_format(@area.members) %></p>
       <br><hr><br>
-      <h2 class="card-title fas fa-calendar-alt"> D-Day: </h4>
+      <h2 class="card-title fas fa-calendar-alt"> Delivery: </h4>
       <p class="card-text"><%= @area.d_day.strftime("%d/%m/%Y") %></p>
       <br>
     </div>
   </div>
   <br>
-  <% @protocols.order(end: :asc).each do |protocol|  %>
-    <%= link_to area_protocol_path(protocol, protocol.area) do %>
+  <% if @protocols.count == 0 %>
+    <%= link_to new_area_protocol_path(@area) do %>
       <div class="card-product">
         <div class="card-product-infos">
-          <h2><span class="fas fa-tasks"></span> <%= protocol.title %> </h2>
-          <p><span class="fas fa-users middle-icon"></span> <%= protocol.members %></p>
-          <p>
-            <% protocol.tasks.each do |task| %>
-              <% checkmessage = %>
-                <% if task.checkbox %>
-                  <i class="fas fa-thumbtack green"></i>
-                <% else %>
-                  <i class="fas fa-thumbtack gray"></i>
-                <% end %>
-            <% end %>
-          </p>
-          <p class="card-text far fa-calendar-alt"> From <strong><%= protocol.start.strftime("%d/%m/%Y") %></strong> to <strong><%= protocol.end.strftime("%d/%m/%Y") %> </strong></p>
+          <h2>
+            Add your first mission <i class="far fa-plus-square middle-icon"></i>
+          </h2>
         </div>
       </div>
+    <% end %>
+  <% else %>
+    <% @protocols.order(end: :asc).each do |protocol|  %>
+      <%= link_to area_protocol_path(protocol, protocol.area) do %>
+        <div class="card-product">
+          <div class="card-product-infos">
+            <h2><span class="fas fa-tasks"></span> <%= protocol.title %> </h2>
+            <p><span class="fas fa-users middle-icon"></span> <%= protocol.members %></p>
+            <p>
+              <% protocol.tasks.each do |task| %>
+                <% checkmessage = %>
+                  <% if task.checkbox %>
+                    <i class="fas fa-thumbtack green"></i>
+                  <% else %>
+                    <i class="fas fa-thumbtack gray"></i>
+                  <% end %>
+              <% end %>
+            </p>
+            <p class="card-text far fa-calendar-alt"> From <strong><%= protocol.start.strftime("%d/%m/%Y") %></strong> to <strong><%= protocol.end.strftime("%d/%m/%Y") %> </strong></p>
+          </div>
+        </div>
+      <% end %>
     <% end %>
     <br>
 <% end %>

@@ -4,9 +4,7 @@ Rails.application.routes.draw do
   root 'areas#index'
   resources :areas do
     resources :protocols do
-      resources :tasks do
-        resources :feedbacks, only: [:new, :create]
-      end
+      resources :tasks
     end
   end
 end

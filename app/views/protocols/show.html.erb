@@ -31,6 +31,17 @@
     <br>
   </div>
     <br>
+    <% if @protocol.tasks.count == 0 %>
+      <%= link_to new_area_protocol_task_path(@protocol, @protocol.area) do %>
+        <div class="card-product">
+          <div class="card-product-infos">
+            <h2>
+              Add your first task <i class="far fa-plus-square middle-icon"></i>
+            </h2>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
     <% @protocol.tasks.order(checkbox: :asc, end: :asc, priority: :asc).each do |task| %>
     <%= link_to area_protocol_task_path(task, task.protocol) do %>
       <div class="card-product no-link-style">
@@ -82,4 +93,5 @@
     <% end %>
     <br>
     <% end %>
+  <% end %>
 </div>
