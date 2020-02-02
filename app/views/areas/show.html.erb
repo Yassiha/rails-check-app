@@ -21,6 +21,9 @@
       <br><hr><br>
       <h2 class="card-title fas fa-users"> Members: </h4>
       <p class="card-text"><%= simple_format(@area.members) %></p>
+      <p class="card-text"><%= @area.creator %></p>
+      <%= link_to "add member", new_area_area_user_path(@area)  %>
+
       <br><hr><br>
       <h2 class="card-title fas fa-calendar-alt"> Delivery: </h4>
       <p class="card-text"><%= @area.d_day.strftime("%d/%m/%Y") %></p>

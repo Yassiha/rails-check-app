@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_24_135546) do
+ActiveRecord::Schema.define(version: 2020_02_02_122822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "area_users", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "area_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["area_id"], name: "index_area_users_on_area_id"
+    t.index ["user_id"], name: "index_area_users_on_user_id"
+  end
 
   create_table "areas", force: :cascade do |t|
     t.string "title"
@@ -65,10 +74,13 @@ ActiveRecord::Schema.define(version: 2020_01_24_135546) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "area_users", "areas"
+  add_foreign_key "area_users", "users"
   add_foreign_key "protocols", "areas"
   add_foreign_key "tasks", "protocols"
 end

@@ -1,11 +1,16 @@
 class AreasController < ApplicationController
+
   def index
-    @areas = Area.all
+    @areas = Area.where('creator = ?', current_user.email)
   end
 
   def show
     @protocols = Area.find(params[:id]).protocols
-    @area = Area.find(params[:id])
+    if current_user.email == Area.find(params[:id]).creator
+      @area = Area.find(params[:id])
+    else
+      redirect_to hep_path
+    end
   end
 
   def new
@@ -18,6 +23,7 @@ class AreasController < ApplicationController
 
   def create
     @area = Area.new(area_params)
+    @area.creator = current_user.email
     @area.save
 
     redirect_to areas_path
@@ -41,5 +47,9 @@ class AreasController < ApplicationController
 
   def area_params
     params.require(:area).permit(:title, :content, :members, :d_day, :protocols)
+  end
+
+  def user_creator(area)
+    User.find_by(email: area.creator)
   end
 end
